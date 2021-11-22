@@ -98,7 +98,7 @@ const renderMyCar = (cart) => {
     totalSection.innerHTML = `${formatCurrency(total)}`
 }
 
-const deleteCart =()=>{
+const deleteCart = async()=>{
     try {
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCart([]);
