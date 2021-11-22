@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import {
     getFirestore,
     doc,
-    getDoc,
+    getDoc,setDoc
 } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 import {
     getAuth,
@@ -12,10 +12,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
+let productG = {};
 let userLogged;
 let cart;
 
-const getProduct = async() => {
+const getProduct = async () => {
     const url = window.location.search;
     const searchParas = new URLSearchParams(url);
     const productId = searchParas.get("id").replace('"', "");
@@ -51,15 +52,15 @@ const getMyCart = () => {
     return cart ? JSON.parse(cart) : [];
 };
 
-const getFirebaseCart = async(userId) => {
+const getFirebaseCart = async (userId) => {
     const docRef = doc(db, "cart", userId);
     const docSnap = await getDoc(docRef);
-    const data = docSnap.data();
-    console.log(userId);
-    return data;
+    return docSnap.exists() ? docSnap.data() : {
+        products: []
+    };
 };
 
-onAuthStateChanged(auth, async(user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
         const result = await getFirebaseCart(user.uid);
         cart = result.products;
@@ -79,6 +80,7 @@ const loadProductInfo = (product, id) => {
     productPrice.innerText = `${formatCurrency(product.price)}`;
     productImage.setAttribute("src", product.images[0]);
 
+
     const isAdded = cart.some(productCart => productCart.id === id);
     console.log(cart)
     console.log(id);
@@ -92,6 +94,14 @@ const loadProductInfo = (product, id) => {
     createGallery(product);
     createLessImages(product);
     createSelectColors(product, product.colors);
+
+    productG ={
+        id: product.id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        description: product.description,
+    };
 };
 
 const createGallery = (product) => {
@@ -141,7 +151,7 @@ const createSelectColors = (product, colors) => {
     productColors.appendChild(select);
 };
 
-const addProductsToCart = async(products) => {
+const addProductsToCart = async (products) => {
     await setDoc(doc(db, "cart", userLogged.uid), {
         products,
     });
@@ -150,15 +160,20 @@ const addProductsToCart = async(products) => {
 productBuy.addEventListener("click", (e) => {
     e.preventDefault();
     const productAdded = {
-        id: product.id,
-        name: product.name,
-        image: product.image,
-        price: product.price,
-        description: product.description,
+        id: productG.id,
+        name: productG.name,
+        image: productG.image,
+        price: productG.price,
+        description: productG.description,
     };
 
-    cart.push(productAdded);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (userLogged) {
+        cart.push(productAdded);
+        addProductsToCart(cart);
+    } else {
+        cart.push(productAdded);
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
 
     window.location = "cart.html";
 });
@@ -166,15 +181,19 @@ productBuy.addEventListener("click", (e) => {
 productCart.addEventListener("click", (e) => {
     e.preventDefault();
     const productAdded = {
-        id: product.id,
-        name: product.name,
-        image: product.image,
-        price: product.price,
-        description: product.description,
+        id: productG.id,
+        name: productG.name,
+        image: productG.image,
+        price: productG.price,
+        description: productG.description,
     };
-
-    cart.push(productAdded);
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (userLogged) {
+        cart.push(productAdded);
+        addProductsToCart(cart);
+    } else {
+        cart.push(productAdded);
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
 
     productCart.innerHTML = "Product Added";
 });

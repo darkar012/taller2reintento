@@ -92,7 +92,9 @@ const renderMyCar = (cart) => {
     cartSection.innerHTML = "";
     total = 0;
     cart.forEach(product => {
-        total += product.price;
+        const price = parseFloat(product.price)
+        total += price;
+        console.log(total);
         renderMyProduct(product);
     })
     totalSection.innerHTML = `${formatCurrency(total)}`
@@ -101,7 +103,7 @@ const renderMyCar = (cart) => {
 const deleteCart = async()=>{
     try {
         await deleteDoc(doc(db, "cart", userLogged.uid));
-        renderMyCart([]);
+        renderMyCar([]);
         total = 0;
         console.log("Carrito de compras actualizado...");
     } catch(e) {
@@ -118,6 +120,7 @@ const createOrder = async (userFields) => {
             email: userLogged.email,
             status: "pending"
         });
+        console.log("order");
         alert(`Thanks for choice us, yout order with ID:${order.id} has been registered`);
         deleteCart();
     } catch (e) {
@@ -126,9 +129,11 @@ const createOrder = async (userFields) => {
 
 };
 
-checkoutForm.addEventListener("click", e => {
-    e.preventDefault;
-    if (e.target.tagName == "BUTTON") {
+const checkButton = document.getElementById("checkIn");
+
+checkButton.addEventListener("click", e => {
+    e.preventDefault();
+        
         const name = checkoutForm.name.value;
         const city = checkoutForm.city.value;
         const address = checkoutForm.address.value;
@@ -138,13 +143,17 @@ checkoutForm.addEventListener("click", e => {
         const userFields = {
             name, city, address, description,payment
         }
-        if (cart.length) {
-            createOrder(userFields);
+
+        if (name && city && address && description){
+            if (cart.length >= 1) { 
+                createOrder(userFields);
+            } else {
+                alert("Choice some products...")
+            }
         } else {
-            alert("Choice some products...")
+            alert("complete all the inputs...")
         }
 
-    }
 
 });
 

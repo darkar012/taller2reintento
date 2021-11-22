@@ -253,6 +253,7 @@ select {
 
 .productItem {
   margin-top: 20px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,6 +306,7 @@ select {
 }
 
 .productItem__name {
+  font-family: 'Poppins';
   font-size: 4em !important;
   color: white;
   font-weight: 400 !important;
@@ -359,7 +361,7 @@ select {
 }
 
 .productItem__gallery div img {
-  width: 309px;
+  width: 90%;
   margin: 0 13px;
   border-radius: 25px;
   background-color: white;
@@ -385,13 +387,13 @@ select {
 }
 
 .productItem__description .productItem__lessImages {
-  width: 100%;
+  width: 85%;
 }
 
 .productItem__description .productItem__lessImages img {
   height: 550px;
-  width: 47%;
-  margin: 0 10px;
+  width: 45%;
+  margin-right: 20px;
   border-radius: 25px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -399,8 +401,9 @@ select {
 }
 
 .productItem__description .productItem__highlights {
-  width: 100%;
+  width: 90%;
   height: 100%;
+  margin-right: 2%;
 }
 
 .productItem__description .productItem__highlights #productHighlights {
@@ -891,5 +894,36 @@ h2 {
   border-color: #fafafa;
   color: #fafafa;
   margin-top: 20px;
+}
+
+@media all and (max-width: 850px) {
+  .breadscrumbs {
+    font-size: 2em;
+    margin-left: 2% !important;
+  }
+  .ordersFilters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .ordersFilters__filters {
+    margin-top: 20px;
+  }
+  .ordersFilters hr {
+    width: 42%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  hr {
+    width: 50% !important;
+  }
+  .productDiv .productLarge {
+    width: 400px !important;
+  }
 }
 /*# sourceMappingURL=products.css.map */
