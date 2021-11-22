@@ -458,7 +458,7 @@ h3 {
 .information h4 {
   margin: 0;
   padding: 0%;
-  font-family: 'Archivo Black';
+  font-family: 'Archivo Black' !important;
   font-size: 2em;
   color: antiquewhite;
 }
