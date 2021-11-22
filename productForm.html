@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add products</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./scss/landing.css">
+    <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="stylesheet" href="./scss/products.css">
+</head>
+
+<body class="bodyForm">
+    <nav class="navBar">
+        <div class="menuMobile">
+            <div class="menuMobile__bar"></div>
+            <figure class="logo logoMobile">
+                <img class="logo__img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png" alt="Sony's logo">
+            </figure>
+            <div class="menu-wrap">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger">
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <div>
+                        <div>
+                            <ul>
+                                <li class="mainMenu__item">
+                                    <a id="homeLink" href="./landing.html">Home</a>
+                                </li>
+                                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
+                                <li class="mainMenu__item"><a href="./landing.html">Audio</a></li>
+                                <li class="mainMenu__item"><a href="./landing.html">Photography</a></li>
+                            </ul>
+
+                            <ul class="signInMenu">
+                                <li class="signInMenu__item"><i class="fas fa-search icon"></i></li>
+                                <li class="signInMenu__item--signIn"><a id="signInMobile" href="./landing.html">Sign In</a></li>
+                                <li class="signInMenu__item"><i class="fas fa-shopping-cart icon"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="menuPc">
+            <figure class="logo">
+                <img class="logo__img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png" alt="Sony's logo">
+            </figure>
+
+            <ul class="mainMenu">
+                <li class="mainMenu__item">
+                    <a href="./landing.html">Home</a>
+                </li>
+                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
+                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                <li class="mainMenu__item mainMenu__item--selected" id="homeLink"><a href="" id="adminChange">Photography</a></li>
+            </ul>
+
+            <ul class="mainMenu">
+                <li class="mainMenu__item"><i class="fas fa-search icon"></i></li>
+                <li class="mainMenu__item--signIn">
+                    <div id="signIn">Sign In</div>
+                </li>
+                <li class="mainMenu__item"><a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <h2 class="titleForm">Create a new product</h2>
+    <form class="formAddProduct" id="formAddProduct">
+        <div class="formAddProduct__mainSection">
+            <p>Name</p>
+            <input type="text" name="name" required>
+            <p>Price</p>
+            <input type="number" name="price" required>
+            <p>Rating</p>
+            <input type="number" name="rating" required>
+            <p>Description</p>
+            <textarea name="description" maxlength="100" required></textarea>
+        </div>
+
+        <div class="formAddProduct__highlightsInput">
+            <p>Highlights</p>
+            <p class="descriptionInput">Introduce at least two highlights</p>
+            <input type="text" name="highlight1" maxlength="150" required>
+            <input type="text" name="highlight2" maxlength="150" required>
+            <input type="text" name="highlight3" maxlength="150">
+            <input type="text" name="highlight4" maxlength="150">
+            <input type="text" name="highlight5" maxlength="150">
+        </div>
+
+        <div class="formAddProduct__colorsInput">
+            <p>Colors</p>
+            <p class="descriptionInput">Introduce colors if have it</p>
+            <input type="text" name="color1" maxlength="15">
+            <input type="text" name="color2" maxlength="15">
+            <input type="text" name="color3" maxlength="15">
+            <input type="text" name="color4" maxlength="15">
+        </div>
+        <div class="formAddProduct__typeInput">
+            <p>Type</p>
+            <select name="type" required>
+                <option value="Consoles">Consoles</option>
+                <option value="Audio">Audio</option>
+                <option value="Phones">Phones</option>
+                <option value="Photography">Photography</option>
+                <option value="House Technology">House Technology</option>
+        </select>
+        </div>
+
+        <div class="formAddProduct__discounts">
+            <p>Discounts</p>
+            <select name="discount" required>
+                <option value="10Discount">10%</option>
+                <option value="20Discount">20%</option>
+                <option value="50Discount">50%</option>
+        </select>
+
+        </div>
+
+        <div class="formAddProduct__images">
+            <h2>Upload images</h2>
+            <div class="image__input">
+                <label for="image">Main Photography</label>
+                <input type="file" accept=".png,.jpg" name="image" id="mainImage" required>
+            </div>
+            <div class="image__aditional">
+                <p>Aditional Images (7 images)</p>
+                <input type="file" accept=".png,.jpg" multiple name="gallery" id="gallery" required>
+
+            </div>
+        </div>
+
+        <input class="buttonSubmit" type="submit" name="create" value="Create Product">
+
+    </form>
+
+
+    <footer class="information">
+        <div class="information__content">
+            <div class="logo">
+                <figure class="logo__image"><img src="./images/sony.png" alt=""></figure>
+                <p class="logo__description">We are a big family of technology to your house</p>
+                <hr>
+            </div>
+            <div class="contact information__section--margin">
+                <h4>Contact Us</h4>
+                <ul class="contact__list">
+                    <li class="contact__list__item">
+                        <i class="fas icon fa-phone-alt"></i>
+                        <p>(+1) 1967979101</p>
+                    </li>
+                    <li class="contact__list__item">
+                        <i class="far icon fa-envelope"></i>
+                        <p>SonyEnterprise@gmail.com</p>
+                    </li>
+                    <li class="contact__list__item">
+                        <i class="fas icon fa-map-marker-alt"></i>
+                        <p>Silicon Valley, USA</p>
+                    </li>
+                    <li class="contact__list__item">
+                        <i class="far icon fa-calendar"></i>
+                        <p>Monday to Friday</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="newsletter information__section--margin">
+                <h4>Newsletter</h4>
+                <p class="newsletter__description">Don't miss out on anything, subscribe to our newsletter</p>
+                <div class="newsletter__suscription">
+                    <input class="suscription__email" type="text" placeholder="Write your E-mail">
+                    <input class="suscription__submit" type="submit" value="Suscribe">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            <p>Copyright 2021 SONY.</p>
+            <a href="./landing.html"> Privacy</a>
+            <a href="./landing.html"> Terms of Use</a>
+
+        </div>
+    </footer>
+</body>
+<script type="module" src="./js/navbar.js"></script>
+<script src="./js/utils.js"></script>
+<script type="module" src="./js/createProduct.js"></script>
+<script src="./js/app.js"></script>
+</html>
