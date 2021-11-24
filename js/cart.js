@@ -140,7 +140,7 @@ checkButton.addEventListener("click", e => {
     const userFields = {
         name, city, address, description, payment
     }
-    if (!userLogged) {
+    if (userLogged) {
         if (name && city && address && description) {
             if (cart.length >= 1) {
                 createOrder(userFields);
