@@ -85,8 +85,6 @@ const productTemplate = (item) => {
 
     if (cart !== undefined) {
         isAdded = cart.find((productCart) => productCart.id === item.id);
-        console.log(item.id);
-        console.log(cart);
     } else {
         cart = getMyCart();
         isAdded = cart.find((productCart) => productCart.id === item.id);

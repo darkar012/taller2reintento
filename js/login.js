@@ -29,7 +29,7 @@ const getMyCart = () => {
 };
 
 const cart = getMyCart();
-console.log(cart);
+
 
 const addProductsToCart = async (products, id) => {
     await setDoc(doc(db, "cart", id), {

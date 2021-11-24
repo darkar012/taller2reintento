@@ -92,7 +92,6 @@ const renderMyCar = (cart) => {
     cart.forEach(product => {
         const price = parseFloat(product.price)
         total += price;
-        console.log(total);
         renderMyProduct(product);
     })
     totalSection.innerHTML = `${formatCurrency(total)}`
@@ -103,7 +102,7 @@ const deleteCart = async () => {
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCar([]);
         total = 0;
-        console.log("Carrito de compras actualizado...");
+
     } catch (e) {
         console.log(e);
     }
@@ -118,7 +117,7 @@ const createOrder = async (userFields) => {
             email: userLogged.email,
             status: "pending"
         });
-        console.log("order");
+
         alert(`Thanks for choice us, yout order with ID:${order.id} has been registered`);
         deleteCart();
     } catch (e) {

@@ -107,7 +107,7 @@ const loadProductInfo = (product, id) => {
 
 const createGallery = (product) => {
     const gallery = document.createElement("div");
-    gallery.className ="galleryImages"
+    gallery.className = "galleryImages"
     for (let i = 1; i < 5; i++) {
         gallery.innerHTML += `<div class="productImages"><img src="${product.images[i]}"></div>`;
     }

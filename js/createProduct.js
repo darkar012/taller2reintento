@@ -20,13 +20,13 @@ const db = getFirestore(app);
 
 const createProductForm = document.getElementById("formAddProduct");
 
-const imageUploadedReference = async(file) => {
+const imageUploadedReference = async (file) => {
     const storageRef = ref(storage, `products/images/${file.name}`);
     return await uploadBytes(storageRef, file);
 
 }
 
-const uploadMainImage = async(file) => {
+const uploadMainImage = async (file) => {
     try {
         const image = await imageUploadedReference(file);
         return getDownloadURL(ref(storage, image.ref.fullPath))
@@ -37,14 +37,14 @@ const uploadMainImage = async(file) => {
 }
 
 const uploadGallery = (files) => {
-    const images = files.map(async(file) => {
+    const images = files.map(async (file) => {
         const image = await imageUploadedReference(file);
         return getDownloadURL(ref(storage, image.ref.fullPath));
     });
     return images;
 
 }
-const createProduct = async() => {
+const createProduct = async () => {
 
     let id;
     let relevance;
@@ -130,7 +130,7 @@ const createProduct = async() => {
     const galleryUrls = await uploadGallery([...gallery]);
     const galleryImages = await Promise.all(galleryUrls);
 
-    if (gallery.length == 7){
+    if (gallery.length == 7) {
         try {
             const collectionRef = collection(db, "products");
             const { docs } = await getDocs(collectionRef);
@@ -156,10 +156,10 @@ const createProduct = async() => {
                 images: galleryImages
             });
         } catch (error) {
-            
+
         }
-            alert("producto añadido correctamente")
-        
+        alert("producto añadido correctamente")
+
     } else {
         alert("Please, add 7 images files");
     }
