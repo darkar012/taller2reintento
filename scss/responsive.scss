@@ -230,6 +230,19 @@
             }
         }
     }
+
+    .formAddProduct {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+        margin-left: 0 !important;
+        .formAddProduct__mainSection{
+            width: 80%;
+        }
+        input {
+            width: 80% !important;
+        }
+    }
 }
 
 @media all and (max-width: 600px) {
