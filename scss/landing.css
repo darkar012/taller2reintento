@@ -95,6 +95,10 @@ body {
   text-shadow: 0 0 7px #fff, 0 0 21px #fff, 0 0 42px #d1f8eb, 0 0 82px #dfeee9, 0 0 92px #ccdad5, 0 0 102px #dbe4e1;
 }
 
+.mainMenu .homeLink {
+  text-shadow: 0 0 7px #fff, 0 0 21px #fff, 0 0 42px #d1f8eb, 0 0 82px #dfeee9, 0 0 92px #ccdad5, 0 0 102px #dbe4e1;
+}
+
 .mainMenu #signIn {
   background-color: #4c4c5f;
   color: antiquewhite;
