@@ -3,7 +3,7 @@ import {
     getFirestore,
     doc,
     getDoc,
-    setDoc, addDoc, collection,deleteDoc
+    setDoc, addDoc, collection, deleteDoc
 
 } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 import {
@@ -37,8 +37,8 @@ const addProductsToCart = async (products) => {
 };
 
 const removeProduct = async (productId) => {
-    if (userLogged) {
 
+    if (!userLogged) {
         const newCart = cart.filter(product => product.id !== productId);
         addProductsToCart(newCart);
         const result = await getFirebaseCart(userLogged.uid);
@@ -72,7 +72,6 @@ const renderMyProduct = (product) => {
     `
     cartSection.appendChild(newProduct);
 
-
     newProduct.addEventListener("click", e => {
         if (e.target.tagName == "BUTTON") {
             removeProduct(product.id);
@@ -87,7 +86,7 @@ const getFirebaseCart = async (userId) => {
 };
 
 const renderMyCar = (cart) => {
-    
+
     //const cart = getMyCart();
     cartSection.innerHTML = "";
     total = 0;
@@ -100,13 +99,13 @@ const renderMyCar = (cart) => {
     totalSection.innerHTML = `${formatCurrency(total)}`
 }
 
-const deleteCart = async()=>{
+const deleteCart = async () => {
     try {
         await deleteDoc(doc(db, "cart", userLogged.uid));
         renderMyCar([]);
         total = 0;
         console.log("Carrito de compras actualizado...");
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 };
@@ -133,26 +132,30 @@ const checkButton = document.getElementById("checkIn");
 
 checkButton.addEventListener("click", e => {
     e.preventDefault();
-        
-        const name = checkoutForm.name.value;
-        const city = checkoutForm.city.value;
-        const address = checkoutForm.address.value;
-        const description = checkoutForm.description.value;
-        const payment = checkoutForm.payment.value;
 
-        const userFields = {
-            name, city, address, description,payment
-        }
+    const name = checkoutForm.name.value;
+    const city = checkoutForm.city.value;
+    const address = checkoutForm.address.value;
+    const description = checkoutForm.description.value;
+    const payment = checkoutForm.payment.value;
 
-        if (name && city && address && description){
-            if (cart.length >= 1) { 
+    const userFields = {
+        name, city, address, description, payment
+    }
+    if (!userLogged) {
+        if (name && city && address && description) {
+            if (cart.length >= 1) {
                 createOrder(userFields);
             } else {
-                alert("Choice some products...")
+                alert("Choice some products...");
             }
         } else {
-            alert("complete all the inputs...")
+            alert("complete all the inputs...");
         }
+    } else {
+        alert("Inicia Sesión o registrate primero para completar la comprar");
+    }
+
 
 
 });

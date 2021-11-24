@@ -2,7 +2,6 @@ body {
     background-color: #252537;
 }
 
-
 h5 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -54,8 +53,9 @@ h5 {
     .productLarge {
         width: 662px;
         display: block;
+        margin-bottom: 80px;
         &__image {
-            height: 370px;
+            
             width: 100%;
             margin-bottom: 15px;
             border-radius: 25px;
@@ -196,20 +196,22 @@ select {
 }
 
 .productItem {
+    position: relative;
     margin-top: 20px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 0 70px;
     &__presentation {
-        height: 750px;
+        height: 650px;
         display: flex;
         flex-direction: row;
         margin-bottom: 20px;
         img {
             height: 100%;
             width: 553px;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: 50% 50%;
             background-color: white;
             border-radius: 25px;
         }
@@ -228,7 +230,7 @@ select {
         }
     }
     &__name {
-        font-family: 'Poppins';
+        font-family: "Poppins";
         font-size: 4em !important;
         color: white;
         font-weight: 400 !important;
@@ -280,20 +282,22 @@ select {
         height: 550px;
         justify-content: space-between;
         .productItem__lessImages {
-            width: 85%;
+            width: 53%;
+            display: flex;
+            flex-direction: row;
             img {
-                height: 550px;
-                width: 45%;
-                margin-right: 20px;
+                height: 100%;
+                width: 44%;
+                margin-left: 5%;
                 border-radius: 25px;
                 object-fit: cover;
                 background-color: white;
             }
         }
         .productItem__highlights {
-            width: 90%;
+            width: 49%;
             height: 100%;
-            margin-right: 2%;
+            //margin-right: 5%;
             #productHighlights {
                 margin-top: 50px;
                 font-family: "Poppins", sans-serif;
@@ -323,11 +327,11 @@ select {
             margin-right: 12%;
         }
     }
-    hr{
+    hr {
         width: 100%;
         background-color: #fafafa;
     }
-    .totalHr{
+    .totalHr {
         margin-top: 20px;
     }
 }
@@ -340,57 +344,55 @@ select {
     align-items: center;
     &__thumbnail {
         margin-top: 30px;
-        width:30%;        
+        width: 30%;
         border-radius: 15px;
         background-color: #ebebeb;
         object-fit: contain;
     }
-    &__nameDescription{
-        width: 13.125em; 
+    &__nameDescription {
+        width: 13.125em;
         margin-left: 10%;
-        h2{
-            font-family: 'Poppins';     
-            margin:0;
+        h2 {
+            font-family: "Poppins";
+            margin: 0;
             font-weight: 300;
             font-size: 0.9em;
         }
     }
-    &__info{
+    &__info {
         display: flex;
         flex-direction: row;
-        .productCart__price{
+        .productCart__price {
             width: 9.375em;
             margin-left: 8%;
             font-size: 1.25em;
         }
-        
     }
-    &__quantity{
+    &__quantity {
         width: 4.375em;
         border-radius: 15px;
         padding: 5px;
-        font-family: 'Poppins';
+        font-family: "Poppins";
         text-align: center;
     }
-    &__remove{
+    &__remove {
         background-color: transparent;
         color: #fafafa;
         margin-left: 7%;
         font-size: 1.125em;
-        border:none;
-        font-family: 'Poppins',sans-serif;
+        border: none;
+        font-family: "Poppins", sans-serif;
     }
-    &__total{
+    &__total {
         display: flex;
         flex-direction: row;
         align-items: baseline;
         justify-content: right;
         margin-bottom: 50px;
-        h2{
+        h2 {
             margin-right: 20px;
         }
     }
-    
 }
 
 //login page//
@@ -415,14 +417,14 @@ select {
             object-fit: contain;
         }
         h2 {
-            font-family: 'Poppins';
+            font-family: "Poppins";
             color: aliceblue;
             margin-left: 0%;
         }
         input {
             padding: 10px;
-            background-color: #C4C4C4;
-            font-family: 'Poppins';
+            background-color: #c4c4c4;
+            font-family: "Poppins";
             border-radius: 5px;
         }
         .signLogo {
@@ -439,19 +441,19 @@ select {
         &__button {
             width: 48%;
             padding: 15px;
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-size: 1em;
             font-weight: bold;
             border-radius: 10px;
             &--signIn {
-                color: #1E1E2C;
-                background-color: #C4C4C4;
+                color: #1e1e2c;
+                background-color: #c4c4c4;
             }
             &--signUp {
-                color: #C4C4C4;
+                color: #c4c4c4;
                 background-color: transparent;
                 border-width: 2px;
-                border-color: #C4C4C4;
+                border-color: #c4c4c4;
             }
         }
         p {
@@ -507,7 +509,7 @@ select {
 
 //productForm//
 h2 {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     font-size: 1.5em;
     color: aliceblue;
     margin-left: 15%;
@@ -515,7 +517,7 @@ h2 {
 
 .bodyForm {
     background-image: url("../images/backgroundForm.png");
-    background-color: #1E1E2C;
+    background-color: #1e1e2c;
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -554,7 +556,7 @@ h2 {
         Select {
             padding: 5px;
             border-radius: 10px;
-            background-color: #C4C4C4;
+            background-color: #c4c4c4;
         }
     }
     &__discounts {
@@ -578,7 +580,7 @@ h2 {
             label {
                 margin-top: 15px;
                 margin-bottom: 5px;
-                font-family: 'Poppins';
+                font-family: "Poppins";
                 color: aliceblue;
             }
             width: 100%;
@@ -606,12 +608,12 @@ h2 {
         width: 70%;
         padding: 10px;
         border-radius: 15px;
-        font-family: 'Poppins';
-        background-color: #C4C4C4;
+        font-family: "Poppins";
+        background-color: #c4c4c4;
     }
     .buttonSubmit {
         margin-bottom: 50px;
-        font-family: 'Poppins';
+        font-family: "Poppins";
         font-size: 1em;
         background-color: transparent;
         border-color: #fafafa;
@@ -624,44 +626,45 @@ h2 {
 
 //cart//
 
-.checkoutProducts{
+.checkoutProducts {
     display: flex;
     flex-direction: row;
     width: 100%;
-    .checkoutDiv{
+    .checkoutDiv {
         width: 50%;
         margin-left: 5%;
-        background-color: #1E1E2C;
+        background-color: #1e1e2c;
         border-radius: 15px;
-        padding-bottom: 30px;;
+        padding-bottom: 30px;
         margin-bottom: 50px;
-        .checkout{
+        .checkout {
             margin-top: 5%;
             margin-left: 5%;
             width: 100%;
-            font-family: 'Poppins';
-            h3{
+            font-family: "Poppins";
+            h3 {
                 margin-top: 0 !important;
             }
-            p{
+            p {
                 margin-top: 20px;
                 margin-bottom: 4px;
             }
-            input, textArea{
+            input,
+            textArea {
                 border-radius: 7px;
                 padding: 5px;
                 width: 60%;
             }
             select {
                 width: 40%;
-                
+
                 text-align: center;
                 padding: 5px;
                 border-radius: 10px;
                 background-color: #c4c4c4;
             }
-            button{
-                padding:10px 20px;
+            button {
+                padding: 10px 20px;
                 border-radius: 15px;
                 font-weight: 600;
                 background-color: transparent;

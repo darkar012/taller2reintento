@@ -21,9 +21,9 @@ let userLogged = null;
 let cart = [];
 
 let isFav = false;
-let isAdd = false;
 
-const getAllProducts = async() => {
+
+const getAllProducts = async () => {
     const collectionRef = collection(db, "products");
     const { docs } = await getDocs(collectionRef);
 
@@ -44,15 +44,21 @@ const getMyCart = () => {
     return cart ? JSON.parse(cart) : [];
 };
 
-const getFirebaseCart = async(userId) => {
+const addProductsToCart = async (products) => {
+    await setDoc(doc(db, "cart", userLogged.uid), {
+        products,
+    });
+};
+
+const getFirebaseCart = async (userId) => {
     const docRef = doc(db, "cart", userId);
     const docSnap = await getDoc(docRef);
-    return docSnap.exists() ? docSnap.data():{
-        products:[]
+    return docSnap.exists() ? docSnap.data() : {
+        products: []
     };
 };
 
-onAuthStateChanged(auth, async(user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
         const result = await getFirebaseCart(user.uid);
         cart = result.products;
@@ -64,11 +70,7 @@ onAuthStateChanged(auth, async(user) => {
     getAllProducts();
 });
 
-const addProductsToCart = async(products) => {
-    await setDoc(doc(db, "cart", userLogged.uid), {
-        products,
-    });
-};
+
 
 const productTemplate = (item) => {
     const productDiv = document.createElement("div");
@@ -82,10 +84,12 @@ const productTemplate = (item) => {
     productDiv.className = "productDiv";
 
     if (cart !== undefined) {
-        isAdded = cart.some((productCart) => productCart.id === item.id);
+        isAdded = cart.find((productCart) => productCart.id === item.id);
+        console.log(item.id);
+        console.log(cart);
     } else {
         cart = getMyCart();
-        isAdded = cart.some((productCart) => productCart.id === item.id);
+        isAdded = cart.find((productCart) => productCart.id === item.id);
     }
 
     if (item.is10discount) {
@@ -105,13 +109,11 @@ const productTemplate = (item) => {
     }
 
     if (isAdded) {
-        addedToCart = `<img src="./images/add.png" class="addCart" id=${
-      "s" + item.relevance
-    }>`;
+        addedToCart = `<img src="./images/add.png" class="addCart" id=${"s" + item.relevance
+            }>`;
     } else {
-        addedToCart = `<img src="./images/notAdd.png" class="addCart" id=${
-      "s" + item.relevance
-    }>`;
+        addedToCart = `<img src="./images/notAdd.png" class="addCart" id=${"s" + item.relevance
+            }>`;
     }
 
     if (item.isLarge) {
@@ -121,9 +123,8 @@ const productTemplate = (item) => {
         <img src=${item.image} alt="" class="productLarge__image">
         <h5 class="productLarge__title">${item.name}</h5>
         
-        <img src="./images/noFav.png" class="productLarge__favorite" id=${
-          item.name
-        }>
+        <img src="./images/noFav.png" class="productLarge__favorite" id=${item.name
+            }>
         <p class="productLarge__description">${item.description}</p>
         <h5 class="productLarge__price">${formatCurrency(item.price)}</h5>
     `;
@@ -152,10 +153,15 @@ const productTemplate = (item) => {
         e.preventDefault();
         const added = cart.find((productCart) => productCart.id === item.id);
         if (added) {
-            const cart = getMyCart();
-            const newCart = cart.filter((product) => product.id !== item.id);
-            localStorage.setItem("cart", JSON.stringify(newCart));
-            productCarButton.src = "./images/noAdd.png";
+
+            if (userLogged) {
+                addProductsToCart(cart);
+            } else {
+                cart = getMyCart();
+                const newCart = cart.filter((product) => product.id !== item.id);
+                localStorage.setItem("cart", JSON.stringify(newCart));
+            }
+            productCarButton.src = "./images/notAdd.png";
             productCarButton.setAttribute("disabled", false);
         } else {
             const productAdded = {
@@ -167,10 +173,13 @@ const productTemplate = (item) => {
             };
             if (userLogged) {
                 cart.push(productAdded);
+                addProductsToCart(cart);
+            } else {
+                cart = getMyCart();
+                cart.push(productAdded)
+                localStorage.setItem("cart", JSON.stringify(cart));
             }
 
-            addProductsToCart(cart);
-            //localStorage.setItem("cart", JSON.stringify(cart));
             productCarButton.src = "./images/add.png";
             productCarButton.setAttribute("disabled", true);
         }
@@ -251,7 +260,7 @@ const loadProducts = () => {
             (a, b) => b.price - a.price
         );
     } else if (order === "AlfabeticD") {
-        filteredProductsByType = filteredProductsByType.sort(function(a, b) {
+        filteredProductsByType = filteredProductsByType.sort(function (a, b) {
             if (a.name < b.name) {
                 return -1;
             }
@@ -261,7 +270,7 @@ const loadProducts = () => {
             return 0;
         });
     } else if (order === "AlfabeticA") {
-        filteredProductsByType = filteredProductsByType.sort(function(a, b) {
+        filteredProductsByType = filteredProductsByType.sort(function (a, b) {
             if (a.name > b.name) {
                 return -1;
             }

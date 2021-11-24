@@ -72,10 +72,10 @@ h5 {
 .productDiv .productLarge {
   width: 662px;
   display: block;
+  margin-bottom: 80px;
 }
 
 .productDiv .productLarge__image {
-  height: 370px;
   width: 100%;
   margin-bottom: 15px;
   border-radius: 25px;
@@ -252,6 +252,7 @@ select {
 }
 
 .productItem {
+  position: relative;
   margin-top: 20px;
   width: 100%;
   display: -webkit-box;
@@ -263,7 +264,7 @@ select {
 }
 
 .productItem__presentation {
-  height: 750px;
+  height: 650px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,8 +278,10 @@ select {
 .productItem__presentation img {
   height: 100%;
   width: 553px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
   background-color: white;
   border-radius: 25px;
 }
@@ -306,7 +309,7 @@ select {
 }
 
 .productItem__name {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 4em !important;
   color: white;
   font-weight: 400 !important;
@@ -387,13 +390,20 @@ select {
 }
 
 .productItem__description .productItem__lessImages {
-  width: 85%;
+  width: 53%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .productItem__description .productItem__lessImages img {
-  height: 550px;
-  width: 45%;
-  margin-right: 20px;
+  height: 100%;
+  width: 44%;
+  margin-left: 5%;
   border-radius: 25px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -401,9 +411,8 @@ select {
 }
 
 .productItem__description .productItem__highlights {
-  width: 90%;
+  width: 49%;
   height: 100%;
-  margin-right: 2%;
 }
 
 .productItem__description .productItem__highlights #productHighlights {
@@ -479,7 +488,7 @@ select {
 }
 
 .productCart__nameDescription h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   margin: 0;
   font-weight: 300;
   font-size: 0.9em;
@@ -505,7 +514,7 @@ select {
   width: 4.375em;
   border-radius: 15px;
   padding: 5px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   text-align: center;
 }
 
@@ -515,7 +524,7 @@ select {
   margin-left: 7%;
   font-size: 1.125em;
   border: none;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .productCart__total {
@@ -573,15 +582,15 @@ select {
 }
 
 .bodyLogin .login h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: aliceblue;
   margin-left: 0%;
 }
 
 .bodyLogin .login input {
   padding: 10px;
-  background-color: #C4C4C4;
-  font-family: 'Poppins';
+  background-color: #c4c4c4;
+  font-family: "Poppins";
   border-radius: 5px;
 }
 
@@ -608,22 +617,22 @@ select {
 .bodyLogin .login__button {
   width: 48%;
   padding: 15px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 1em;
   font-weight: bold;
   border-radius: 10px;
 }
 
 .bodyLogin .login__button--signIn {
-  color: #1E1E2C;
-  background-color: #C4C4C4;
+  color: #1e1e2c;
+  background-color: #c4c4c4;
 }
 
 .bodyLogin .login__button--signUp {
-  color: #C4C4C4;
+  color: #c4c4c4;
   background-color: transparent;
   border-width: 2px;
-  border-color: #C4C4C4;
+  border-color: #c4c4c4;
 }
 
 .bodyLogin .login p {
@@ -695,7 +704,7 @@ select {
 }
 
 h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 1.5em;
   color: aliceblue;
   margin-left: 15%;
@@ -703,7 +712,7 @@ h2 {
 
 .bodyForm {
   background-image: url("../images/backgroundForm.png");
-  background-color: #1E1E2C;
+  background-color: #1e1e2c;
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -757,7 +766,7 @@ h2 {
 .formAddProduct__typeInput Select {
   padding: 5px;
   border-radius: 10px;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
 }
 
 .formAddProduct__discounts {
@@ -799,7 +808,7 @@ h2 {
 .formAddProduct__images .image__input label {
   margin-top: 15px;
   margin-bottom: 5px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   color: aliceblue;
 }
 
@@ -823,13 +832,13 @@ h2 {
   width: 70%;
   padding: 10px;
   border-radius: 15px;
-  font-family: 'Poppins';
-  background-color: #C4C4C4;
+  font-family: "Poppins";
+  background-color: #c4c4c4;
 }
 
 .formAddProduct .buttonSubmit {
   margin-bottom: 50px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-size: 1em;
   background-color: transparent;
   border-color: #fafafa;
@@ -853,7 +862,7 @@ h2 {
 .checkoutProducts .checkoutDiv {
   width: 50%;
   margin-left: 5%;
-  background-color: #1E1E2C;
+  background-color: #1e1e2c;
   border-radius: 15px;
   padding-bottom: 30px;
   margin-bottom: 50px;
@@ -863,7 +872,7 @@ h2 {
   margin-top: 5%;
   margin-left: 5%;
   width: 100%;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 .checkoutProducts .checkoutDiv .checkout h3 {
@@ -875,7 +884,8 @@ h2 {
   margin-bottom: 4px;
 }
 
-.checkoutProducts .checkoutDiv .checkout input, .checkoutProducts .checkoutDiv .checkout textArea {
+.checkoutProducts .checkoutDiv .checkout input,
+.checkoutProducts .checkoutDiv .checkout textArea {
   border-radius: 7px;
   padding: 5px;
   width: 60%;

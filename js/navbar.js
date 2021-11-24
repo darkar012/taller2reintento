@@ -15,11 +15,13 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 const signText = document.getElementById("signIn");
+const signInMobile = document.getElementById("signInMobile");
 const admin = document.getElementById("adminChange")
+const adminMobile = document.getElementById("adminChangeMobile");
 let userId = "";
 
 
-const getUserInfo = async(userId) => {
+const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
@@ -30,22 +32,26 @@ const getUserInfo = async(userId) => {
 }
 
 
-onAuthStateChanged(auth, async(user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user) {
         userId = user.uid;
         const userInfo = await getUserInfo(userId);
         //alert("Bienvenido de vuelta " + userInfo.username);
         if (userInfo.isAdmin) {
             admin.setAttribute('href', "./productForm.html");
+            adminMobile.setAttribute('href', "./productForm.html");
             admin.innerHTML = "Add Product"
-        } else {}
+            adminMobile.innerHTML = "Add Product"
+        } else { }
         signText.innerHTML = "Sign Out"
+        signInMobile.innerHTML = "Sign Out"
     } else {
         signText.innerHTML = "Sign In"
+        signInMobile.innerHTML = "Sign In"
     }
 });
 
-const logout = async() => {
+const logout = async () => {
     try {
         await signOut(auth);
     } catch (error) {
@@ -55,7 +61,17 @@ const logout = async() => {
 
 signText.addEventListener("click", e => {
     if (signText.innerHTML == "Sign Out") {
-        logout()
+        logout();
+        location.reload();
+    } else {
+        window.location = "login.html"
+    }
+});
+
+signInMobile.addEventListener("click", e => {
+    if (signText.innerHTML == "Sign Out") {
+        logout();
+        location.reload();
     } else {
         window.location = "login.html"
     }

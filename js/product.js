@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase
 import {
     getFirestore,
     doc,
-    getDoc,setDoc
+    getDoc, setDoc
 } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 import {
     getAuth,
@@ -15,11 +15,12 @@ const auth = getAuth();
 let productG = {};
 let userLogged;
 let cart;
+let productId;
 
 const getProduct = async () => {
     const url = window.location.search;
     const searchParas = new URLSearchParams(url);
-    const productId = searchParas.get("id").replace('"', "");
+    productId = searchParas.get("id").replace('"', "");
 
     const docRef = doc(db, "products", productId);
     const docSnap = await getDoc(docRef);
@@ -81,13 +82,13 @@ const loadProductInfo = (product, id) => {
     productImage.setAttribute("src", product.images[0]);
 
 
-    const isAdded = cart.some(productCart => productCart.id === id);
-    console.log(cart)
-    console.log(id);
+    const isAdded = cart.find((productCart) => productCart.id === id);
     if (isAdded) {
         productCart.innerHTML = `Product Added to Cart`;
+        productCart.disabled = true;
     } else {
         productCart.innerHTML = `Add to Cart`;
+        productCart.disabled = false;
     }
 
     createHighlights(product.highlights);
@@ -95,7 +96,7 @@ const loadProductInfo = (product, id) => {
     createLessImages(product);
     createSelectColors(product, product.colors);
 
-    productG ={
+    productG = {
         id: product.id,
         name: product.name,
         image: product.image,
@@ -175,25 +176,35 @@ productBuy.addEventListener("click", (e) => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    window.location = "cart.html";
+    //window.location = "cart.html";
 });
 
 productCart.addEventListener("click", (e) => {
     e.preventDefault();
     const productAdded = {
-        id: productG.id,
+        id: productId,
         name: productG.name,
         image: productG.image,
         price: productG.price,
         description: productG.description,
     };
-    if (userLogged) {
-        cart.push(productAdded);
-        addProductsToCart(cart);
+    const added = cart.find((productCart) => productCart.id === id);
+
+    if (added) {
+        productCart.innerHTML = "Product Added to Cart";
+        productCart.disabled = true;
     } else {
-        cart.push(productAdded);
-        localStorage.setItem("cart", JSON.stringify(cart));
+        if (userLogged) {
+            cart.push(productAdded);
+            addProductsToCart(cart);
+        } else {
+            cart.push(productAdded);
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        productCart.innerHTML = "Product Added to Cart";
+        productCart.disabled = true;
     }
 
-    productCart.innerHTML = "Product Added";
+
+
 });

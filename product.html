@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./scss/products.css">
 </head>
 
-<body>
+<body class ="productBody">
     <nav class="navBar">
         <div class="menuMobile">
             <div class="menuMobile__bar"></div>
@@ -37,16 +37,15 @@
                         <div>
                             <ul>
                                 <li class="mainMenu__item">
-                                    <a href="./landing.html">Home</a>
+                                    <a id="homeLink" href="./landing.html">Home</a>
                                 </li>
-                                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
-                                <li class="mainMenu__item"><a id="homeLink" href="./landing.html">Shop</a></li>
-                                <li class="mainMenu__item"><a href="./landing.html">Photography</a></li>
+                                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                                <li class="mainMenu__item"><a href="./landing.html" id="adminChangeMobile">Photography</a></li>
                             </ul>
 
                             <ul class="signInMenu">
                                 <li class="signInMenu__item"><i class="fas fa-search icon"></i></li>
-                                <li class="signInMenu__item--signIn"><a id="signInMobile" href="./landing.html">Sign In</a></li>
+                                <li class="signInMenu__item--signIn"><div id="signInMobile">Sign In</div></li>
                                 <li class="signInMenu__item"><i class="fas fa-shopping-cart icon"></i></li>
                             </ul>
                         </div>
@@ -64,17 +63,14 @@
                 <li class="mainMenu__item mainMenu__item--selected">
                     <a href="./landing.html">Home</a>
                 </li>
-                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
-                <li class="mainMenu__item"><a id="homeLink" href="./products.html">Shop</a></li>
+                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
                 <li class="mainMenu__item"><a href="" id="adminChange">Photography</a></li>
             </ul>
 
             <ul class="mainMenu">
                 <li class="mainMenu__item"><i class="fas fa-search icon"></i></li>
                 <li class="mainMenu__item--signIn">
-                    <li class="mainMenu__item--signIn">
-                        <div id="signIn">Sign In</div>
-                    </li>
+                    <div id="signIn">Sign In</div>
                 </li>
                 <li class="mainMenu__item"><a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a></li>
             </ul>

@@ -23,7 +23,21 @@ const db = getFirestore(app);
 
 const body = document.getElementById("bodyLogin");
 
-const getUserInfo = async(userId) => {
+const getMyCart = () => {
+    const cart = localStorage.getItem("cart");
+    return cart ? JSON.parse(cart) : [];
+};
+
+const cart = getMyCart();
+console.log(cart);
+
+const addProductsToCart = async (products, id) => {
+    await setDoc(doc(db, "cart", id), {
+        products,
+    });
+};
+
+const getUserInfo = async (userId) => {
     try {
         const docRef = doc(db, "users", userId);
         const docSnap = await getDoc(docRef);
@@ -33,7 +47,7 @@ const getUserInfo = async(userId) => {
     }
 }
 
-const login = async(email, password) => {
+const login = async (email, password) => {
     try {
         const { user } = await signInWithEmailAndPassword(auth, email, password);
         localStorage.setItem("user", user);
@@ -50,7 +64,7 @@ const login = async(email, password) => {
     }
 };
 
-const loginWithGoogle = async() => {
+const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     try {
         const result = await signInWithPopup(auth, provider);
@@ -63,6 +77,7 @@ const loginWithGoogle = async() => {
         } else {
             await setDoc(doc(db, "users", userId), { username: username, isAdmin: false });
         }
+        addProductsToCart(cart, userId);
         cambiarPagina();
     } catch (error) {
         console.log(error);
@@ -70,12 +85,13 @@ const loginWithGoogle = async() => {
 
 };
 
-const createUser = async(email, password, userFields) => {
+const createUser = async (email, password, userFields) => {
     try {
         const { user } = await createUserWithEmailAndPassword(auth, email, password);
         const userId = user.uid;
         await setDoc(doc(db, "users", userId), userFields);
         await setDoc(doc(db, "cart", userId), { id: 0 });
+        addProductsToCart(cart, userId);
         cambiarPagina();
     } catch (e) {
         console.log(e.code);

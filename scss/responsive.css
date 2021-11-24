@@ -54,6 +54,25 @@
 }
 
 @media all and (max-width: 850px) {
+  .breadscrumbs {
+    font-size: 2em;
+    margin-left: 2% !important;
+  }
+  .ordersFilters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .ordersFilters__filters {
+    margin-top: 20px;
+  }
+  .ordersFilters hr {
+    width: 40%;
+  }
   .login {
     padding-top: 0 !important;
     margin-bottom: 0 !important;
@@ -94,6 +113,24 @@
   .loginImage {
     display: none !important;
   }
+  .productGallery {
+    padding: 0 !important;
+  }
+  .productGallery .productDiv .product {
+    width: 300px !important;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .productGallery .productDiv .productLarge {
+    width: 500px;
+  }
+  .arrow {
+    right: 40px !important;
+  }
+  .ordersFilters hr {
+    width: 40%;
+  }
 }
 
 @media all and (max-width: 550px) {
@@ -107,6 +144,29 @@
   .login__buttons button {
     margin-bottom: 5px;
     width: 100% !important;
+  }
+  .productGallery .productDiv .productLarge {
+    width: 400px;
+  }
+  .arrow {
+    right: 50px !important;
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .ordersFilters hr {
+    width: 48%;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .productGallery .productDiv .productLarge {
+    width: 300px;
+  }
+  .filters .arrow {
+    right: 20px !important;
+  }
+  .ordersFilters hr {
+    width: 60%;
   }
 }
 
@@ -124,37 +184,6 @@
   .login__buttons button {
     margin-bottom: 5px;
     width: 100% !important;
-  }
-}
-
-@media all and (max-width: 850px) {
-  .breadscrumbs {
-    font-size: 2em;
-    margin-left: 2% !important;
-  }
-  .ordersFilters {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
-  }
-  .ordersFilters__filters {
-    margin-top: 20px;
-  }
-  .ordersFilters hr {
-    width: 42%;
-  }
-}
-
-@media all and (max-width: 600px) {
-  hr {
-    width: 50% !important;
-  }
-  .productDiv .productLarge {
-    width: 400px !important;
   }
 }
 /*# sourceMappingURL=responsive.css.map */
