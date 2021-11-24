@@ -63,7 +63,6 @@ const renderMyProduct = (product) => {
             <div class="productCart__info">
             <div class="productCart__nameDescription">
                 <h2 class="productCart__name">${product.name}</h2>
-                <h2 class="productCart__description">${product.description}</h2>
                 </div>
                 <h3 class="productCart__price">${formatCurrency(product.price)}</h3>
             </div>

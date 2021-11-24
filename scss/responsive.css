@@ -306,6 +306,19 @@
   .footerProduct {
     margin-top: 50px !important;
   }
+  .productsCart {
+    width: 65% !important;
+  }
+  .productsCart .productCart__thumbnail {
+    margin-right: 10px !important;
+    width: 35% !important;
+  }
+  .erase {
+    display: none !important;
+  }
+  .productCart__name {
+    display: none !important;
+  }
 }
 
 @media all and (max-width: 500px) {
@@ -332,6 +345,13 @@
   }
   .productItem__highlights .productItem__highlight {
     font-size: 1em !important;
+  }
+  .productCart__price {
+    margin-left: 0 !important;
+    font-size: 0.9em !important;
+  }
+  .total {
+    font-size: 2em;
   }
 }
 

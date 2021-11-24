@@ -748,7 +748,7 @@ h2 {
   position: absolute;
   right: 0px;
   width: 40%;
-  height: 95%;
+  height: 600px;
   margin-left: 5%;
   background-color: #1e1e2c;
   border-radius: 15px 0 0 15px;
@@ -758,7 +758,6 @@ h2 {
 
 .checkoutProducts .checkoutDiv .checkout {
   margin-top: 5%;
-  margin-bottom: 500px;
   margin-left: 5%;
   width: 100%;
   font-family: "Poppins";
@@ -798,10 +797,15 @@ h2 {
   margin-top: 20px;
 }
 
+.footerCart {
+  margin-top: 220px;
+}
+
 .productsCart {
   margin-top: 90px;
   margin-bottom: 10%;
   width: 55%;
+  display: block;
 }
 
 .productsCart__titles {
@@ -834,8 +838,7 @@ h2 {
 
 .productCart {
   width: 100%;
-  max-height: 300px;
-  text-decoration: none;
+  height: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -864,6 +867,7 @@ h2 {
 }
 
 .productCart__nameDescription h2 {
+  width: 8em;
   font-family: "Poppins";
   margin: 0;
   font-weight: 300;
@@ -878,13 +882,14 @@ h2 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-right: 4%;
+  margin-right: 15%;
   padding: 0;
 }
 
 .productCart__info .productCart__price {
-  margin-top: 60px;
-  font-family: 'Poppins';
+  margin-top: 20px;
+  margin-left: 25%;
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 1.25em;
 }
