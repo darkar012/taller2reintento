@@ -347,7 +347,7 @@
          font-size: 1.3em;
      }
      .information__content {
-         font-size: 1.8em;
+          /*font-size: 1.8em; */
          padding-right: 5%;
      }
      .information__section--margin {

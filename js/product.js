@@ -107,8 +107,9 @@ const loadProductInfo = (product, id) => {
 
 const createGallery = (product) => {
     const gallery = document.createElement("div");
+    gallery.className ="galleryImages"
     for (let i = 1; i < 5; i++) {
-        gallery.innerHTML += `<div><img src="${product.images[i]}"></div>`;
+        gallery.innerHTML += `<div class="productImages"><img src="${product.images[i]}"></div>`;
     }
     productGallery.appendChild(gallery);
     const productGalleryImages = document.querySelector(
@@ -176,7 +177,7 @@ productBuy.addEventListener("click", (e) => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    //window.location = "cart.html";
+    window.location = "cart.html";
 });
 
 productCart.addEventListener("click", (e) => {
