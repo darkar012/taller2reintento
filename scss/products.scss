@@ -1,5 +1,6 @@
 body {
     background-color: #252537;
+
 }
 
 h5 {
@@ -318,86 +319,7 @@ select {
     }
 }
 
-.productsCart {
-    margin-top: 50px;
-    width: 60%;
-    &__titles {
-        margin: 0 5%;
-    }
-    &__subtitles {
-        display: flex;
-        flex-direction: row;
-        h5 {
-            margin-right: 12%;
-        }
-    }
-    hr {
-        width: 100%;
-        background-color: #fafafa;
-    }
-    .totalHr {
-        margin-top: 20px;
-    }
-}
 
-.productCart {
-    width: 100%;
-    max-height: 300px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    &__thumbnail {
-        margin-top: 30px;
-        width: 30%;
-        border-radius: 15px;
-        background-color: #ebebeb;
-        object-fit: contain;
-    }
-    &__nameDescription {
-        width: 13.125em;
-        margin-left: 10%;
-        h2 {
-            font-family: "Poppins";
-            margin: 0;
-            font-weight: 300;
-            font-size: 0.9em;
-        }
-    }
-    &__info {
-        display: flex;
-        flex-direction: row;
-        .productCart__price {
-            width: 9.375em;
-            margin-left: 8%;
-            font-size: 1.25em;
-        }
-    }
-    &__quantity {
-        width: 4.375em;
-        border-radius: 15px;
-        padding: 5px;
-        font-family: "Poppins";
-        text-align: center;
-    }
-    &__remove {
-        background-color: transparent;
-        color: #fafafa;
-        margin-left: 7%;
-        font-size: 1.125em;
-        border: none;
-        font-family: "Poppins", sans-serif;
-    }
-    &__total {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: right;
-        margin-bottom: 50px;
-        h2 {
-            margin-right: 20px;
-        }
-    }
-}
 
 //login page//
 
@@ -634,15 +556,20 @@ h2 {
     display: flex;
     flex-direction: row;
     width: 100%;
+    position: relative;
     .checkoutDiv {
-        width: 50%;
+        position: absolute;
+        right: 0px;
+        width: 40%;
+        height: 95%;
         margin-left: 5%;
         background-color: #1e1e2c;
-        border-radius: 15px;
+        border-radius: 15px 0 0 15px;
         padding-bottom: 30px;
         margin-bottom: 50px;
         .checkout {
             margin-top: 5%;
+            margin-bottom: 500px;
             margin-left: 5%;
             width: 100%;
             font-family: "Poppins";
@@ -676,6 +603,95 @@ h2 {
                 color: #fafafa;
                 margin-top: 20px;
             }
+        }
+    }
+}
+.productsCart {
+    margin-top: 90px;
+    margin-bottom: 10%;
+    width: 55%;
+    &__titles {
+        margin: 0 5%;
+    }
+    &__subtitles {
+        display: flex;
+        flex-direction: row;
+        
+        h5 {
+            margin-right: 10%;
+            font-size: 1em;
+        }
+    }
+    hr {
+        width: 100%;
+        background-color: #fafafa;
+    }
+    .totalHr {
+        margin-top: 20px;
+    }
+}
+
+.productCart {
+    width: 100%;
+    max-height: 300px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__thumbnail {
+        margin-top: 30px;
+        width: 30%;
+        margin-right: 13%;
+        border-radius: 15px;
+        background-color: #ebebeb;
+        object-fit: contain;
+    }
+    &__nameDescription {
+        width: 40%;
+        margin-right: 20%;
+        h2 {
+            font-family: "Poppins";
+            margin: 0;
+            font-weight: 300;
+            font-size: 0.9em;
+        }
+    }
+    &__info {
+        display: flex;
+        flex-direction: row;
+        margin-right: 4%;
+        padding: 0;
+        .productCart__price {
+            
+        margin-top: 60px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            font-size: 1.25em;
+        }
+    }
+    &__quantity {
+        width: 5em;
+        border-radius: 15px;
+        padding: 5px;
+        font-family: "Poppins";
+        text-align: center;
+    }
+    &__remove {
+        background-color: transparent;
+        color: #fafafa;
+        margin-left: 10%;
+        font-size: 1.125em;
+        border: none;
+        font-family: "Poppins", sans-serif;
+    }
+    &__total {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: right;
+        margin-bottom: 50px;
+        h2 {
+            margin-right: 20px;
         }
     }
 }

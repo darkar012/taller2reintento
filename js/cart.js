@@ -68,7 +68,7 @@ const renderMyProduct = (product) => {
                 <h3 class="productCart__price">${formatCurrency(product.price)}</h3>
             </div>
             <input type="number" name="quantity" class="productCart__quantity" id="quantity" min="1" value="1">
-            <button class="productCart__remove">X<button>
+            <button class="productCart__remove">X</button>
     `
     cartSection.appendChild(newProduct);
 
@@ -76,7 +76,7 @@ const renderMyProduct = (product) => {
         if (e.target.tagName == "BUTTON") {
             removeProduct(product.id);
         }
-    })
+    });
 }
 
 const getFirebaseCart = async (userId) => {

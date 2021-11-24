@@ -9,12 +9,15 @@
     <title>Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./scss/landing.css">
+    <link rel="stylesheet" href="./scss/responsive.css">
     <link rel="stylesheet" href="./css/mobile.css">
     <link rel="stylesheet" href="./scss/products.css">
 </head>
@@ -24,7 +27,9 @@
         <div class="menuMobile">
             <div class="menuMobile__bar"></div>
             <figure class="logo logoMobile">
-                <img class="logo__img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png" alt="Sony's logo">
+                <img class="logo__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
+                    alt="Sony's logo">
             </figure>
             <div class="menu-wrap">
                 <input type="checkbox" class="toggler">
@@ -38,14 +43,16 @@
                                 <li class="mainMenu__item">
                                     <a id="homeLink" href="./landing.html">Home</a>
                                 </li>
-                                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
-                                <li class="mainMenu__item"><a href="./landing.html">Audio</a></li>
-                                <li class="mainMenu__item"><a href="./landing.html">Photography</a></li>
+                                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                                <li class="mainMenu__item"><a href="./landing.html"
+                                        id="adminChangeMobile">Photography</a></li>
                             </ul>
 
                             <ul class="signInMenu">
                                 <li class="signInMenu__item"><i class="fas fa-search icon"></i></li>
-                                <li class="signInMenu__item--signIn"><a id="signInMobile" href="./landing.html">Sign In</a></li>
+                                <li class="signInMenu__item--signIn">
+                                    <div id="signInMobile">Sign In</div>
+                                </li>
                                 <li class="signInMenu__item"><i class="fas fa-shopping-cart icon"></i></li>
                             </ul>
                         </div>
@@ -56,16 +63,17 @@
         </div>
         <div class="menuPc">
             <figure class="logo">
-                <img class="logo__img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png" alt="Sony's logo">
+                <img class="logo__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
+                    alt="Sony's logo">
             </figure>
 
             <ul class="mainMenu">
-                <li class="mainMenu__item">
-                    <a href="./landing.html">Home</a>
+                <li class="mainMenu__item mainMenu__item--selected">
+                    <a href="./landing.html" id="homeLink">Home</a>
                 </li>
-                <li class="mainMenu__item"><a href="./landing.html">Consoles</a></li>
-                <li class="mainMenu__item"><a href="./products.html" id="homeLink">Shop</a></li>
-                <li class="mainMenu__item mainMenu__item--selected" ><a href="" id="adminChange">Photography</a></li>
+                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                <li class="mainMenu__item"><a href="" id="adminChange">Photography</a></li>
             </ul>
 
             <ul class="mainMenu">
@@ -82,49 +90,49 @@
         <h3>My Cart</h3>
     </div>
     <section class="checkoutProducts">
-    <div class="productsCart">
-        <div class="productsCart__titles">
-            <div class="productsCart__subtitles">
-                <h5>These articles are almost yours</h5>
-                <h5>Description</h5>
-                <h5>Price</h5>
-                <h5>Quantity</h5>
+        <div class="productsCart">
+            <div class="productsCart__titles">
+                <div class="productsCart__subtitles">
+                    <h5>These articles are almost yours</h5>
+                    <h5>Description</h5>
+                    <h5>Price</h5>
+                    <h5>Quantity</h5>
+                </div>
+                <hr>
+                <ul id="cart"></ul>
             </div>
-            <hr>
-            <ul id="cart"></ul>
+            <hr class="totalHr">
+            <div class="productCart__total">
+                <h2>Total:</h2>
+                <h3 class="total" id="total"></h3>
+            </div>
+
         </div>
-        <hr class="totalHr">
-        <div class="productCart__total">
-            <h2>Total:</h2>
-            <h3 class="total" id="total"></h3>
+        <div class="checkoutDiv">
+            <form action="" class="checkout" id="checkout">
+                <h3>Checkout</h3>
+                <div class="checkout__mainSection">
+                    <p>Name</p>
+                    <input type="text" name="name" required>
+                    <p>City</p>
+                    <input type="text" name="city" required>
+                    <p>Address</p>
+                    <input type="text" name="address" required>
+                    <p>Aditional Description</p>
+                    <textarea name="description" maxlength="150" required></textarea>
+                </div>
+                <div class="checkout__payment">
+                    <p>Payment Method</p>
+                    <select name="payment" required>
+                        <option value="contraentrega">Pago contra entrega</option>
+                        <option value="PSE">Pago contra entrega</option>
+                        <option value="Sistecredito">Sistecredito</option>
+                        <option value="credito">Tarjeta de Credito</option>
+                    </select>
+                </div>
+                <button class="checkIn" id="checkIn">Buy Complete</button>
+            </form>
         </div>
-        
-    </div>
-    <div class="checkoutDiv">
-        <form action="" class="checkout" id="checkout">
-            <h3>Checkout</h3>
-            <div class="checkout__mainSection">
-                <p>Name</p>
-                <input type="text" name="name" required>
-                <p>City</p>
-                <input type="text" name="city" required>
-                <p>Address</p>
-                <input type="text" name="address" required>
-                <p>Aditional Description</p>
-                <textarea name="description" maxlength="150" required></textarea>
-            </div>
-            <div class="checkout__payment">
-                <p>Payment Method</p>
-                <select name="payment" required>
-                <option value="contraentrega">Pago contra entrega</option>
-                <option value="PSE">Pago contra entrega</option>
-                <option value="Sistecredito">Sistecredito</option>
-                <option value="credito">Tarjeta de Credito</option>
-            </select>
-            </div>
-            <button class="checkIn" id="checkIn">Buy Complete</button>
-        </form>
-    </div>
     </section>
     <footer class="information">
         <div class="information__content">
