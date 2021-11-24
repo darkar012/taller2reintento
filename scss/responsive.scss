@@ -1,0 +1,143 @@
+//login//
+
+@media all and (max-width: 1200px) {
+    .login {
+        top: 20% !important;
+    }
+}
+
+@media all and (max-width: 1036px) {
+    .login {
+        top: 15% !important;
+    }
+}
+
+@media all and (max-width: 1025px) {
+    .login {
+        padding-top: 150px ;
+        margin-bottom: 120px;
+        top: 13% !important;
+        position: relative !important;
+        padding-bottom: 50px;
+        width: 80% !important;
+        align-items: center;
+        .accounts {
+            justify-content: center;
+            .signLogo{
+             margin-left: 45%;   
+            }
+        }
+        input {
+            width: 50%;
+        }
+        &__buttons {
+            flex-direction: column !important;
+            width: 100%;
+            margin-top: 25px;
+            align-items: center;
+            button {
+                margin-bottom: 5px;
+                width: 100%;
+            }
+        }
+    }
+    .loginImage {
+        display: none !important;
+    }
+}
+
+@media all and (max-width: 850px) {
+    .login {
+        padding-top: 0 !important ;
+        margin-bottom: 0 !important;
+        top: 13% !important;
+        position: relative !important;
+        padding-bottom: 50px;
+        width: 80% !important;
+        align-items: center;
+        .accounts {
+            justify-content: center;
+            .signLogo{
+             margin-left: 45%;   
+            }
+        }
+        input {
+            width: 50%;
+        }
+        &__buttons {
+            flex-direction: column !important;
+            width: 100%;
+            margin-top: 25px;
+            align-items: center;
+            button {
+                margin-bottom: 5px;
+                width: 100%;
+            }
+        }
+    }
+    .loginImage {
+        display: none !important;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .login{
+        
+        input {
+            width: 80% !important;
+            padding: 5px !important;
+        }
+        &__buttons {
+            width: 80%;
+            button {
+                margin-bottom: 5px;
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 376px) {
+    body{
+        width: 100%;
+    }
+    .login{
+        input {
+            width: 80% !important;
+            padding: 5px !important;
+        }
+        &__buttons {
+            width: 80%;
+            button {
+                margin-bottom: 5px;
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 850px) {
+    .breadscrumbs {
+        font-size: 2em;
+        margin-left: 2% !important;
+    }
+    .ordersFilters {
+        display: flex;
+        flex-direction: column !important;
+        &__filters {
+            margin-top: 20px;
+        }
+        hr {
+            width: 42%;
+        }
+    }
+}
+
+@media all and (max-width: 600px) {
+    hr {
+        width: 50% !important;
+    }
+    .productDiv .productLarge {
+        width: 400px !important;
+    }
+}

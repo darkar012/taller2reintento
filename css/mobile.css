@@ -1,7 +1,7 @@
  @media all and (max-width:1030px) {
      /*Ipad portrait*/
      body {
-         font-size: 0.85em;
+         font-size: 0.85em !important;
      }
      .imageGrid .gallery {
          height: 100%;
@@ -37,7 +37,7 @@
  
  @media all and (max-width:950px) {
      body {
-         font-size: 0.77em;
+         font-size: 0.77em !important;
      }
  }
  
@@ -57,7 +57,7 @@
          justify-content: center;
      }
      .menuMobile__bar {
-         width: 1000px;
+         width: 100%;
          height: 70px;
          opacity: 40%;
          background-color: #1E1E2C;
@@ -198,7 +198,7 @@
      }
      /* menu mobile style*/
      body {
-         font-size: 0.69em;
+         font-size: 0.69em !important;
      }
      .banner__background--image {
          object-fit: contain;
@@ -267,11 +267,14 @@
      .copyright {
          justify-content: center;
      }
+     footer{
+         width: 100%;
+     }
  }
  
  @media all and (max-width:768px) {
      body {
-         font-size: 0.72em;
+         font-size: 0.72em !important;
      }
      .signInMenu {
          padding-top: 50px;
@@ -284,7 +287,7 @@
  
  @media all and (max-width:500px) {
      body {
-         font-size: 0.4em;
+         font-size: 0.5em !important;
      }
      .banner {
          transform: scale(1.1);

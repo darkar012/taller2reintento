@@ -79,7 +79,6 @@ body {
         background-color: #7b7b94;
         color: #1e1e2c;
     }
-    
 }
 
 .logo .logo__img {
@@ -183,8 +182,6 @@ header {
         font-family: "Archivo Black";
         font-size: 4em;
     }
-
-    
 }
 /* banner end */
 /* carousel start */
@@ -306,6 +303,9 @@ h3 {
                 font-size: 1.6em;
                 transform: translateY(20px);
                 transition: transform 0.25s;
+                font-family: "Archivo Black" !important;
+                font-size: 1.5em;
+                color: antiquewhite;
             }
         }
         .overlayGallery:hover {
@@ -370,7 +370,7 @@ h3 {
     h4 {
         margin: 0;
         padding: 0%;
-        font-family: 'Archivo Black' !important;
+        font-family: "Archivo Black" !important;
         font-size: 2em;
         color: antiquewhite;
     }
@@ -391,7 +391,7 @@ h3 {
         .suscription__email {
             background-color: transparent;
             color: antiquewhite;
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-size: 0.8em;
             width: 60%;
             padding: 5px 0;
@@ -405,7 +405,7 @@ h3 {
             border: none;
             background-color: antiquewhite;
             border-radius: 50px;
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-size: 0.8em;
             font-weight: 700;
         }
@@ -416,7 +416,7 @@ h3 {
         padding: 20px 20px;
         padding-left: 5%;
         a {
-            font-family: 'Poppins';
+            font-family: "Poppins";
             font-weight: 600;
             font-size: 18px;
             color: antiquewhite;

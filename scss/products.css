@@ -540,13 +540,15 @@ select {
 }
 
 .bodyLogin {
-  background-color: #1E1E2C;
+  background-color: #1e1e2c;
 }
 
 .bodyLogin .loginImage {
-  position: absolute;
-  max-width: 50%;
-  height: 100%;
+  margin-left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
   right: 0;
 }
 
@@ -573,6 +575,7 @@ select {
 .bodyLogin .login h2 {
   font-family: 'Poppins';
   color: aliceblue;
+  margin-left: 0%;
 }
 
 .bodyLogin .login input {
@@ -894,36 +897,5 @@ h2 {
   border-color: #fafafa;
   color: #fafafa;
   margin-top: 20px;
-}
-
-@media all and (max-width: 850px) {
-  .breadscrumbs {
-    font-size: 2em;
-    margin-left: 2% !important;
-  }
-  .ordersFilters {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: column !important;
-            flex-direction: column !important;
-  }
-  .ordersFilters__filters {
-    margin-top: 20px;
-  }
-  .ordersFilters hr {
-    width: 42%;
-  }
-}
-
-@media all and (max-width: 600px) {
-  hr {
-    width: 50% !important;
-  }
-  .productDiv .productLarge {
-    width: 400px !important;
-  }
 }
 /*# sourceMappingURL=products.css.map */

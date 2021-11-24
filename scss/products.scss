@@ -394,12 +394,13 @@ select {
 }
 
 //login page//
+
 .bodyLogin {
-    background-color: #1E1E2C;
+    background-color: #1e1e2c;
     .loginImage {
-        position: absolute;
-        max-width: 50%;
-        height: 100%;
+        margin-left: 50%;
+        display: flex;
+        width: 50%;
         right: 0;
     }
     .login {
@@ -416,6 +417,7 @@ select {
         h2 {
             font-family: 'Poppins';
             color: aliceblue;
+            margin-left: 0%;
         }
         input {
             padding: 10px;
@@ -462,7 +464,7 @@ select {
         }
     }
 }
-
+//login page//
 .oneProduct {
     display: none;
     &.loaded {
@@ -668,32 +670,5 @@ h2 {
                 margin-top: 20px;
             }
         }
-    }
-}
-
-@media all and (max-width:850px){
-    .breadscrumbs{
-        font-size: 2em;
-        margin-left: 2% !important;
-    }
-    .ordersFilters{
-        display: flex;
-        flex-direction: column !important;
-        &__filters{
-margin-top: 20px;
-        }
-        hr {
-            width: 42%;
-        }
-    }
-    
-}
-
-@media all and (max-width:600px){
-    hr {
-        width: 50% !important;
-    }
-    .productDiv .productLarge {
-        width: 400px !important;
     }
 }

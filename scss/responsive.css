@@ -1,1 +1,160 @@
-/* No CSS *//*# sourceMappingURL=responsive.css.map */
+@media all and (max-width: 1200px) {
+  .login {
+    top: 20% !important;
+  }
+}
+
+@media all and (max-width: 1036px) {
+  .login {
+    top: 15% !important;
+  }
+}
+
+@media all and (max-width: 1025px) {
+  .login {
+    padding-top: 150px;
+    margin-bottom: 120px;
+    top: 13% !important;
+    position: relative !important;
+    padding-bottom: 50px;
+    width: 80% !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login .accounts {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .login .accounts .signLogo {
+    margin-left: 45%;
+  }
+  .login input {
+    width: 50%;
+  }
+  .login__buttons {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    width: 100%;
+    margin-top: 25px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login__buttons button {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .loginImage {
+    display: none !important;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .login {
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+    top: 13% !important;
+    position: relative !important;
+    padding-bottom: 50px;
+    width: 80% !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login .accounts {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .login .accounts .signLogo {
+    margin-left: 45%;
+  }
+  .login input {
+    width: 50%;
+  }
+  .login__buttons {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    width: 100%;
+    margin-top: 25px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login__buttons button {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .loginImage {
+    display: none !important;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .login input {
+    width: 80% !important;
+    padding: 5px !important;
+  }
+  .login__buttons {
+    width: 80%;
+  }
+  .login__buttons button {
+    margin-bottom: 5px;
+    width: 100% !important;
+  }
+}
+
+@media all and (max-width: 376px) {
+  body {
+    width: 100%;
+  }
+  .login input {
+    width: 80% !important;
+    padding: 5px !important;
+  }
+  .login__buttons {
+    width: 80%;
+  }
+  .login__buttons button {
+    margin-bottom: 5px;
+    width: 100% !important;
+  }
+}
+
+@media all and (max-width: 850px) {
+  .breadscrumbs {
+    font-size: 2em;
+    margin-left: 2% !important;
+  }
+  .ordersFilters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
+  .ordersFilters__filters {
+    margin-top: 20px;
+  }
+  .ordersFilters hr {
+    width: 42%;
+  }
+}
+
+@media all and (max-width: 600px) {
+  hr {
+    width: 50% !important;
+  }
+  .productDiv .productLarge {
+    width: 400px !important;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
