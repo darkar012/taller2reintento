@@ -96,8 +96,6 @@ const loadProductInfo = (product, id) => {
         productCart.disabled = false;
     }
 
-
-
     createHighlights(product.highlights);
     createGallery(product);
     createLessImages(product);
@@ -107,7 +105,8 @@ const loadProductInfo = (product, id) => {
 
     if (product.is3D) {
         view3D.style.display = "block"
-        view3D.setAttribute("href", `./object3d.html?id=${item.id}"`);
+        
+        view3D.setAttribute("href", `./object3d.html?id=${productId}"`);
     } else if (!product.is3D || product.is3D === null || product.is3D === undefined){
         view3D.style.display = "none"
     }
