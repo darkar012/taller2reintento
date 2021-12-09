@@ -312,6 +312,14 @@ select {
           justify-content: space-between;
 }
 
+.productItem__presentation .productItem__introduction select {
+  width: 30%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+}
+
 .productItem__name {
   font-family: "Poppins";
   font-size: 4em !important;

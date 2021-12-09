@@ -151,6 +151,7 @@ const createLessImages = (product) => {
 
 const createSelectColors = (product, colors) => {
     const select = document.createElement("select");
+    select.className = "select discounts";
     if (product.isColor) {
         colors.forEach((color) => {
             select.innerHTML += `<option value= "${color}">${color}</option>`;
