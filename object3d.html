@@ -5,74 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./scss/landing.css">
-    <link rel="stylesheet" href="./css/mobile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./scss/object3d.css">
+
 </head>
 <body>
 
-    <nav class="navBar">
-        <div class="menuMobile">
-            <div class="menuMobile__bar"></div>
-            <figure class="logo logoMobile">
-                <img class="logo__img"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
-                    alt="Sony's logo">
-            </figure>
-            <div class="menu-wrap">
-                <input type="checkbox" class="toggler">
-                <div class="hamburger">
-                    <div></div>
-                </div>
-                <div class="menu">
-                    <div>
-                        <div>
-                            <ul>
-                                <li class="mainMenu__item">
-                                    <a id="homeLink" href="./landing.html">Home</a>
-                                </li>
-                                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
-                                <li class="mainMenu__item"><a href="./landing.html"
-                                        id="adminChangeMobile">Photography</a></li>
-                            </ul>
+    <div class="info">
+        <h2 class="info__title">Controls</h2>
 
-                            <ul class="signInMenu">
-                                <li class="signInMenu__item"><i class="fas fa-search icon"></i></li>
-                                <li class="signInMenu__item--signIn">
-                                    <div id="signInMobile">Sign In</div>
-                                </li>
-                                <li class="signInMenu__item"><i class="fas fa-shopping-cart icon"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <div class="info__controls">
+            <div class="info__item">
+                <h3 class="info__subtitle">Right Click:</h3>
+                <p class="info__paragraph">Move 3D Model</p>
             </div>
-
+            <div class="info__item">
+                <h3 class="info__subtitle">Left Click:</h3>
+                <p class="info__paragraph">Rotate 3D Model</p>
+            </div>
+            <div class="info__item">
+                <h3 class="info__subtitle">Scroll Wheel:</h3>
+                <p class="info__paragraph">Zoom In / Zoom Out</p>
+            </div>
         </div>
-        <div class="menuPc">
-            <figure class="logo">
-                <img class="logo__img"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
-                    alt="Sony's logo">
-            </figure>
 
-            <ul class="mainMenu">
-                <li class="mainMenu__item mainMenu__item--selected">
-                    <a href="./landing.html">Home</a>
-                </li>
-                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
-                <li class="mainMenu__item"><a href="" id="adminChange">Photography</a></li>
-            </ul>
+        <button class="info__button" onclick="history.back()">Go Back</button>
+        
+    </div>
 
-            <ul class="mainMenu">
-                <li class="mainMenu__item"><i class="fas fa-search icon"></i></li>
-                <li class="mainMenu__item--signIn">
-                    <div id="signIn">Sign In</div>
-                </li>
-                <li class="mainMenu__item"><a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a></li>
-            </ul>
-        </div>
-    </nav> 
 
+    <script src="./js/utils.js"></script>
     <script type="module" src="./js/object3d.js"></script>
 </body>
 </html>

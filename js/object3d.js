@@ -1,6 +1,15 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+
 import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from '../js/GLTFLoader.js';
+
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth();
 
 const url = window.location.search;
 const searchParas = new URLSearchParams(url);
@@ -43,3 +52,13 @@ function animate() {
 }
 
 animate();
+
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        
+        userLogged = user;
+    } else {
+        
+    }
+    //getProduct();
+});
