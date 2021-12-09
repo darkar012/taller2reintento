@@ -313,6 +313,8 @@ select {
 }
 
 .productItem__presentation .productItem__introduction select {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   width: 30%;
   text-align: center;
   padding: 5px;
@@ -454,6 +456,44 @@ select {
   margin-top: 10px;
 }
 
+.chart {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.125em;
+  font-weight: 300;
+  color: #fafafa;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 50px;
+  margin-bottom: 250px;
+  width: 90vw !important;
+  height: 90vh !important;
+}
+
+.chart h1 {
+  margin-bottom: 50px;
+}
+
+.chart select {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  width: 20%;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+  margin-bottom: 20px;
+}
+
+.chart #myChart {
+  position: relative;
+}
+
 .bodyLogin {
   background-color: #1e1e2c;
 }
@@ -559,6 +599,10 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .lds-dual-ring {

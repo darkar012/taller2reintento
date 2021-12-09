@@ -231,6 +231,8 @@ select {
             flex-direction: column;
             justify-content: space-between;
             select {
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
                 width: 30%;
                 text-align: center;
                 padding: 5px;
@@ -336,7 +338,36 @@ select {
         }
     }
 }
-
+.chart {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.125em;
+    font-weight: 300;
+    color: #fafafa;
+    h1 {
+        margin-bottom: 50px;
+    }
+    select {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        width: 20%;
+        text-align: center;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #c4c4c4;
+        margin-bottom: 20px;
+    }
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    margin-bottom: 250px;
+    width: 90vw !important;
+    height: 90vh !important;
+    #myChart {
+        position: relative;
+    }
+}
 //login page//
 
 .bodyLogin {
@@ -413,6 +444,7 @@ select {
     display: none;
     &.loaded {
         display: flex;
+        flex-direction: column;
     }
 }
 
