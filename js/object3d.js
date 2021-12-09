@@ -5,16 +5,12 @@ import { GLTFLoader } from '../js/GLTFLoader.js';
 let scene, camera, renderer;
 
 scene = new THREE.Scene();
-camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,100);
+camera = new THREE.PerspectiveCamera(45,window.innerWidth/window.innerHeight,0.1,1000);
 renderer = new THREE.WebGLRenderer({antialias:true});
 
-scene.background = new THREE.Color(0xFFFFFF);
+scene.background = new THREE.Color(0xE5E5E5);
 
-camera.position.set( 5, 2, 8 );
-/*camera.rotation.y = 45/180*Math.PI;
-camera.position.x = 800;
-camera.position.y = 100;
-camera.position.z = 1000;*/
+camera.position.set( 2, 2, 0 );
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.addEventListener('change', renderer);
@@ -25,30 +21,14 @@ document.body.appendChild(renderer.domElement);
 let hlight = new THREE.AmbientLight (0x404040, 100);
 scene.add(hlight);
 
-let directionalLight = new THREE.DirectionalLight(0xffffff,100);
+let directionalLight = new THREE.DirectionalLight(0xffffff,10);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-let light1 = new THREE.PointLight(0xc4c4c4,10);
-light1.position.set(0,300,500);
-scene.add(light1);
 
-let light2 = new THREE.PointLight(0xc4c4c4,10);
-light2.position.set(500,100,0);
-scene.add(light2)
-
-let light3 = new THREE.PointLight(0xc4c4c4,10);
-light3.position.set(0,100,-500);
-scene.add(light3)
-
-let light4 = new THREE.PointLight(0xc4c4c4,10);
-light4.position.set(-500,300,0);
-scene.add(light4)
 
 const loader = new GLTFLoader();
-loader.load("./models/scene.gltf", function(gltf){
-    //let car = gltf.scene.children[0];
-    //car.scale.set(0.5,0.5,0.5);
+loader.load("./models/xperia/scene.gltf", function(gltf){
     scene.add(gltf.scene);
 }, undefined, function ( error ) {
 
