@@ -85,6 +85,8 @@ const loadProductInfo = (product, id) => {
     productImage.setAttribute("src", product.images[0]);
 
 
+
+
     const isAdded = cart.find((productCart) => productCart.id === id);
     if (isAdded) {
         productCart.innerHTML = `Product Added to Cart`;
@@ -93,11 +95,21 @@ const loadProductInfo = (product, id) => {
         productCart.innerHTML = `Add to Cart`;
         productCart.disabled = false;
     }
-    
+
     createHighlights(product.highlights);
     createGallery(product);
     createLessImages(product);
     createSelectColors(product, product.colors);
+
+    const view3D = document.getElementById("renderer");
+
+    if (product.is3D) {
+        view3D.style.display = "block"
+        
+        view3D.setAttribute("href", `./object3d.html?id=${productId}"`);
+    } else if (!product.is3D || product.is3D === null || product.is3D === undefined){
+        view3D.style.display = "none"
+    }
 
     productG = {
         id: product.id,
@@ -107,8 +119,8 @@ const loadProductInfo = (product, id) => {
         description: product.description,
     };
     AOS.init({
-        offset:200,
-        duration:1000
+        offset: 200,
+        duration: 1000
     });
 };
 
@@ -119,7 +131,7 @@ const createGallery = (product) => {
         gallery.innerHTML += `<div class="productImages" data-aos="flip-left" data-aos-mirror="true" ><img  src="${product.images[i]}"></div>`;
     }
 
-    
+
 
     productGallery.appendChild(gallery);
     const productGalleryImages = document.querySelector(
@@ -132,14 +144,16 @@ const createGallery = (product) => {
             productImage.setAttribute("src", imageSource);
         }
     });
-    
+
 };
 
 const createHighlights = (texts) => {
     const highlights = document.createElement("ul");
     texts.forEach((highlight) => {
-        highlights.innerHTML += `<li class="productItem__highlight">${highlight}</li>`;
+        highlights.innerHTML += `<li class="productItem__highlight">${highlight}</li>
+        `;
     });
+    highlights.innerHTML += `<a class="render" id="renderer" href="">3D View</a>`
     productHighlights.appendChild(highlights);
 };
 
