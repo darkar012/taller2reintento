@@ -5,15 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        body{
-            margin: 0;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./scss/landing.css">
+    <link rel="stylesheet" href="./css/mobile.css">
 </head>
 <body>
+
+    <nav class="navBar">
+        <div class="menuMobile">
+            <div class="menuMobile__bar"></div>
+            <figure class="logo logoMobile">
+                <img class="logo__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
+                    alt="Sony's logo">
+            </figure>
+            <div class="menu-wrap">
+                <input type="checkbox" class="toggler">
+                <div class="hamburger">
+                    <div></div>
+                </div>
+                <div class="menu">
+                    <div>
+                        <div>
+                            <ul>
+                                <li class="mainMenu__item">
+                                    <a id="homeLink" href="./landing.html">Home</a>
+                                </li>
+                                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                                <li class="mainMenu__item"><a href="./landing.html"
+                                        id="adminChangeMobile">Photography</a></li>
+                            </ul>
+
+                            <ul class="signInMenu">
+                                <li class="signInMenu__item"><i class="fas fa-search icon"></i></li>
+                                <li class="signInMenu__item--signIn">
+                                    <div id="signInMobile">Sign In</div>
+                                </li>
+                                <li class="signInMenu__item"><i class="fas fa-shopping-cart icon"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="menuPc">
+            <figure class="logo">
+                <img class="logo__img"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Sony_logo_%28white%29.svg/1200px-Sony_logo_%28white%29.svg.png"
+                    alt="Sony's logo">
+            </figure>
+
+            <ul class="mainMenu">
+                <li class="mainMenu__item mainMenu__item--selected">
+                    <a href="./landing.html">Home</a>
+                </li>
+                <li class="mainMenu__item"><a href="./products.html">Shop</a></li>
+                <li class="mainMenu__item"><a href="" id="adminChange">Photography</a></li>
+            </ul>
+
+            <ul class="mainMenu">
+                <li class="mainMenu__item"><i class="fas fa-search icon"></i></li>
+                <li class="mainMenu__item--signIn">
+                    <div id="signIn">Sign In</div>
+                </li>
+                <li class="mainMenu__item"><a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a></li>
+            </ul>
+        </div>
+    </nav> 
+
     <script type="module" src="./js/object3d.js"></script>
 </body>
 </html>
