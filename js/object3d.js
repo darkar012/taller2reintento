@@ -3,7 +3,7 @@ import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.
 
 import * as THREE from 'https://cdn.skypack.dev/three@0.135.0';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from '../js/GLTFLoader.js';
+import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader.js';
 
 
 const app = initializeApp(firebaseConfig);
@@ -22,12 +22,11 @@ const getProduct = async () => {
     const data = docSnap.data();
 
     productName = data.name;
-    console.log(productName)
-
+    
     renderProduct();
 };
 
-const renderProduct = () =>{
+const renderProduct = () => {
     let scene, camera, renderer;
 
     scene = new THREE.Scene();
