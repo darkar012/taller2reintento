@@ -300,6 +300,18 @@ select {
         .productItem__highlights {
             width: 49%;
             height: 100%;
+            .render {
+                background-color: #c4c4c4 !important;
+                border: none;
+                color: #1e1e2c;
+                margin-top: 50px;
+                width: 40%;
+                padding: 10px 0;
+                font-size: 1.5em;
+                background-color: transparent;
+                border-radius: 25px;
+                font-family: "Poppins", sans-serif;
+            }
             //margin-right: 5%;
             #productHighlights {
                 margin-top: 50px;

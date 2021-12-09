@@ -5,12 +5,15 @@ import { GLTFLoader } from '../js/GLTFLoader.js';
 let scene, camera, renderer;
 
 scene = new THREE.Scene();
-camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,1,100);
+camera = new THREE.PerspectiveCamera(75,(window.innerWidth)/window.innerHeight,1,5000);
 renderer = new THREE.WebGLRenderer({antialias:true});
 
-scene.background = new THREE.Color(0xFFFFFF);
+scene.background = new THREE.Color(0x8d8f91);
 
-camera.position.set( 5, 2, 8 );
+
+
+camera.position.set( -15, -15, 7 );
+
 /*camera.rotation.y = 45/180*Math.PI;
 camera.position.x = 800;
 camera.position.y = 100;
@@ -46,17 +49,20 @@ light4.position.set(-500,300,0);
 scene.add(light4)
 
 const loader = new GLTFLoader();
-loader.load("./models/scene.gltf", function(gltf){
-    //let car = gltf.scene.children[0];
-    //car.scale.set(0.5,0.5,0.5);
-    scene.add(gltf.scene);
+loader.load("./models/ps5.gltf", function(gltf){
+    let car = gltf.scene.children[0];
+    
+    scene.add(car);
 }, undefined, function ( error ) {
 
     console.error( error );
 } );
 
 function animate() {
-    renderer.render(scene,camera); 
+    renderer.render(scene,camera);
+    console.log(camera.position.x);
+    console.log(camera.position.y);
+    console.log(camera.position.z);
     requestAnimationFrame(animate);  
 }
 
