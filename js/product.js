@@ -1,13 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import {
-    getFirestore,
-    doc,
-    getDoc, setDoc
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import {
-    getAuth,
-    onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
 
 
 
@@ -34,8 +27,6 @@ const getProduct = async () => {
 
     loadProductInfo(data, productId);
 };
-
-//const product = products.find(product => product.id + '"' == productId);
 
 const productSection = document.getElementById("oneProduct");
 const loader = document.getElementById("loader");
@@ -75,17 +66,12 @@ onAuthStateChanged(auth, async (user) => {
     getProduct();
 });
 
-//const cart = getMyCart();
-
 const loadProductInfo = (product, id) => {
     productBreadscrumb.innerText = product.name;
     productName.innerText = product.name;
     productRating.innerText = `Rating: ${product.rating}`;
     productPrice.innerText = `${formatCurrency(product.price)}`;
     productImage.setAttribute("src", product.images[0]);
-
-
-
 
     const isAdded = cart.find((productCart) => productCart.id === id);
     if (isAdded) {
@@ -130,8 +116,6 @@ const createGallery = (product) => {
     for (let i = 1; i < 5; i++) {
         gallery.innerHTML += `<div class="productImages" data-aos="flip-left" data-aos-mirror="true" ><img  src="${product.images[i]}"></div>`;
     }
-
-
 
     productGallery.appendChild(gallery);
     const productGalleryImages = document.querySelector(
