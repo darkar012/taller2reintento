@@ -15,6 +15,8 @@ const url = window.location.search;
 const searchParas = new URLSearchParams(url);
 let productId = searchParas.get("id").replace('"', "");
 
+
+
 let scene, camera, renderer;
 
 scene = new THREE.Scene();
@@ -39,6 +41,7 @@ directionalLight.castShadow = true;
 scene.add(directionalLight);
 
 const loader = new GLTFLoader();
+
 loader.load("./models/xperia/scene.gltf", function (gltf) {
     scene.add(gltf.scene);
 }, undefined, function (error) {
