@@ -8,6 +8,9 @@ import {
     getAuth,
     onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+
+
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
@@ -90,7 +93,7 @@ const loadProductInfo = (product, id) => {
         productCart.innerHTML = `Add to Cart`;
         productCart.disabled = false;
     }
-
+    
     createHighlights(product.highlights);
     createGallery(product);
     createLessImages(product);
@@ -103,14 +106,21 @@ const loadProductInfo = (product, id) => {
         price: product.price,
         description: product.description,
     };
+    AOS.init({
+        offset:200,
+        duration:1000
+    });
 };
 
 const createGallery = (product) => {
     const gallery = document.createElement("div");
     gallery.className = "galleryImages"
     for (let i = 1; i < 5; i++) {
-        gallery.innerHTML += `<div class="productImages"><img src="${product.images[i]}"></div>`;
+        gallery.innerHTML += `<div class="productImages" data-aos="flip-left" data-aos-mirror="true" ><img  src="${product.images[i]}"></div>`;
     }
+
+    
+
     productGallery.appendChild(gallery);
     const productGalleryImages = document.querySelector(
         ".productItem > #productGallery > div"
@@ -122,6 +132,7 @@ const createGallery = (product) => {
             productImage.setAttribute("src", imageSource);
         }
     });
+    
 };
 
 const createHighlights = (texts) => {
@@ -135,7 +146,7 @@ const createHighlights = (texts) => {
 const createLessImages = (product) => {
     const lessImages = document.createElement("div");
     for (let i = 5; i < 7; i++) {
-        lessImages.innerHTML += `<img src="${product.images[i]}">`;
+        lessImages.innerHTML += `<img data-aos="flip-right" src="${product.images[i]}">`;
     }
     productLessImages.appendChild(lessImages);
 };
@@ -205,7 +216,5 @@ productCart.addEventListener("click", (e) => {
         productCart.innerHTML = "Product Added to Cart";
         productCart.disabled = true;
     }
-
-
 
 });
