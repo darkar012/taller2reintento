@@ -97,13 +97,12 @@
         </div>
     </div>
     <div class="oneProduct" id="oneProduct">
-
         <div class="productItem">
             <div class="productItem__presentation">
-                <div class="productItem__image" data-aos="zoom-in-right" data-aos-mirror="true" >
+                <div class="productItem__image" data-aos="zoom-in-right" data-aos-mirror="true">
                     <img src="" alt="" class="productItem__mainImage" id="productImage">
                 </div>
-                <div class="productItem__introduction" >
+                <div class="productItem__introduction">
                     <div class="productItem__info" data-aos="fade-left" data-aos-mirror="true">
                         <h1 class="productItem__name" id="productName"></h1>
                         <hr>
@@ -111,9 +110,11 @@
                         <p class="productItem__rating" id="productRating"></p>
                         <div class="productItem__Colors" id="productColors"></div>
                     </div>
-                    <div class="productItem__buttons" >
-                        <button class="productItem__buyNow" id="buyNow" data-aos="flip-up" data-aos-mirror="true">Buy Now</button>
-                        <button class="productItem__addToCart" id="addCart" data-aos="flip-down" data-aos-mirror="true">Add to Cart</button>
+                    <div class="productItem__buttons">
+                        <button class="productItem__buyNow" id="buyNow" data-aos="flip-up" data-aos-mirror="true">Buy
+                            Now</button>
+                        <button class="productItem__addToCart" id="addCart" data-aos="flip-down"
+                            data-aos-mirror="true">Add to Cart</button>
                     </div>
 
                 </div>
@@ -131,7 +132,18 @@
                 <div class="productItem__lessImages" id="productLessImages"></div>
             </div>
         </div>
+        <div class="chart">
+            <h1 data-aos="fade-up">Rating Charts</h1>
+            <select class="select sites" name="countries" id="countries" data-aos="flip-right">
+                <option value="All">All countries</option>
+                <option value="America">America</option>
+                <option value="Europe">Europe</option>
+            </select>
+            <canvas id="myChart" data-aos="zoom-in"></canvas>
+
+        </div>
     </div>
+
     <div class="lds-dual-ring" id="loader"></div>
     <footer class="information footerProduct">
         <div class="information__content">
@@ -181,7 +193,10 @@
 </body>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script type="module" src="./js/navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="./js/chart.js"></script>
 <script src="./js/utils.js"></script>
+<script type="module" src="./js/productList.js"></script>
 <script type="module" src="./js/product.js"></script>
 
 </html>
