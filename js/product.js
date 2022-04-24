@@ -1,13 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
-import {
-    getFirestore,
-    doc,
-    getDoc, setDoc
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
-import {
-    getAuth,
-    onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+
+
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
@@ -31,8 +27,6 @@ const getProduct = async () => {
 
     loadProductInfo(data, productId);
 };
-
-//const product = products.find(product => product.id + '"' == productId);
 
 const productSection = document.getElementById("oneProduct");
 const loader = document.getElementById("loader");
@@ -72,15 +66,12 @@ onAuthStateChanged(auth, async (user) => {
     getProduct();
 });
 
-//const cart = getMyCart();
-
 const loadProductInfo = (product, id) => {
     productBreadscrumb.innerText = product.name;
     productName.innerText = product.name;
     productRating.innerText = `Rating: ${product.rating}`;
     productPrice.innerText = `${formatCurrency(product.price)}`;
     productImage.setAttribute("src", product.images[0]);
-
 
     const isAdded = cart.find((productCart) => productCart.id === id);
     if (isAdded) {
@@ -96,6 +87,16 @@ const loadProductInfo = (product, id) => {
     createLessImages(product);
     createSelectColors(product, product.colors);
 
+    const view3D = document.getElementById("renderer");
+
+    if (product.is3D) {
+        view3D.style.display = "block"
+        
+        view3D.setAttribute("href", `./object3d.html?id=${productId}"`);
+    } else if (!product.is3D || product.is3D === null || product.is3D === undefined){
+        view3D.style.display = "none"
+    }
+
     productG = {
         id: product.id,
         name: product.name,
@@ -103,14 +104,19 @@ const loadProductInfo = (product, id) => {
         price: product.price,
         description: product.description,
     };
+    AOS.init({
+        offset: 200,
+        duration: 1000
+    });
 };
 
 const createGallery = (product) => {
     const gallery = document.createElement("div");
     gallery.className = "galleryImages"
     for (let i = 1; i < 5; i++) {
-        gallery.innerHTML += `<div class="productImages"><img src="${product.images[i]}"></div>`;
+        gallery.innerHTML += `<div class="productImages" data-aos="flip-left" data-aos-mirror="true" ><img  src="${product.images[i]}"></div>`;
     }
+
     productGallery.appendChild(gallery);
     const productGalleryImages = document.querySelector(
         ".productItem > #productGallery > div"
@@ -122,26 +128,30 @@ const createGallery = (product) => {
             productImage.setAttribute("src", imageSource);
         }
     });
+
 };
 
 const createHighlights = (texts) => {
     const highlights = document.createElement("ul");
     texts.forEach((highlight) => {
-        highlights.innerHTML += `<li class="productItem__highlight">${highlight}</li>`;
+        highlights.innerHTML += `<li class="productItem__highlight">${highlight}</li>
+        `;
     });
+    highlights.innerHTML += `<a class="render" id="renderer" href="">3D View</a>`
     productHighlights.appendChild(highlights);
 };
 
 const createLessImages = (product) => {
     const lessImages = document.createElement("div");
     for (let i = 5; i < 7; i++) {
-        lessImages.innerHTML += `<img src="${product.images[i]}">`;
+        lessImages.innerHTML += `<img data-aos="flip-right" src="${product.images[i]}">`;
     }
     productLessImages.appendChild(lessImages);
 };
 
 const createSelectColors = (product, colors) => {
     const select = document.createElement("select");
+    select.className = "select discounts";
     if (product.isColor) {
         colors.forEach((color) => {
             select.innerHTML += `<option value= "${color}">${color}</option>`;
@@ -205,7 +215,5 @@ productCart.addEventListener("click", (e) => {
         productCart.innerHTML = "Product Added to Cart";
         productCart.disabled = true;
     }
-
-
 
 });

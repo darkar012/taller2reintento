@@ -68,6 +68,12 @@ onAuthStateChanged(auth, async (user) => {
         cart = getMyCart();
     }
     getAllProducts();
+    AOS.init({
+        delay:500,
+        duration:2000,
+        mirror:true,
+        anchorPlacement:"top"
+    });
 });
 
 
@@ -82,6 +88,8 @@ const productTemplate = (item) => {
     let isAdded;
 
     productDiv.className = "productDiv";
+    
+    productDiv.setAttribute ("data-aos","fade-up");
 
     if (cart !== undefined) {
         isAdded = cart.find((productCart) => productCart.id === item.id);
@@ -291,6 +299,7 @@ const loadProducts = () => {
         const element = cartShop[i];
         addSelection(element);
     }
+
 };
 
 const favProducts = document.getElementsByClassName("product__favorite");

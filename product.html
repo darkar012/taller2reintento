@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./scss/responsive.css">
     <link rel="stylesheet" href="./scss/landing.css">
     <link rel="stylesheet" href="./css/mobile.css">
@@ -85,7 +86,7 @@
             </ul>
         </div>
     </nav>
-    <div class="breadscrumbs">
+    <div class="breadscrumbs" data-aos="fade-down">
         <div class="breadscrumbs__item"><a href="./landing.html"><i class="fas fa-arrow-left"></i></a></div>
         <div class="breadscrumbs__item"><a href="./landing.html">Home</a></div>
         <div class="breadscrumbs__item"><i class="fas fa-angle-right"></i></div>
@@ -96,14 +97,13 @@
         </div>
     </div>
     <div class="oneProduct" id="oneProduct">
-
         <div class="productItem">
             <div class="productItem__presentation">
-                <div class="productItem__image">
+                <div class="productItem__image" data-aos="zoom-in-right" data-aos-mirror="true">
                     <img src="" alt="" class="productItem__mainImage" id="productImage">
                 </div>
                 <div class="productItem__introduction">
-                    <div class="productItem__info">
+                    <div class="productItem__info" data-aos="fade-left" data-aos-mirror="true">
                         <h1 class="productItem__name" id="productName"></h1>
                         <hr>
                         <h3 class="productItem__price" id="productPrice"></h3>
@@ -111,8 +111,10 @@
                         <div class="productItem__Colors" id="productColors"></div>
                     </div>
                     <div class="productItem__buttons">
-                        <button class="productItem__buyNow" id="buyNow">Buy Now</button>
-                        <button class="productItem__addToCart" id="addCart">Add to Cart</button>
+                        <button class="productItem__buyNow" id="buyNow" data-aos="flip-up" data-aos-mirror="true">Buy
+                            Now</button>
+                        <button class="productItem__addToCart" id="addCart" data-aos="flip-down"
+                            data-aos-mirror="true">Add to Cart</button>
                     </div>
 
                 </div>
@@ -120,18 +122,28 @@
             <div class="productItem__gallery" id="productGallery">
             </div>
             <div class="productItem__description">
-                <div class="productItem__highlights">
+                <div class="productItem__highlights" data-aos="fade-in">
                     <h3>
                         Product highlights
                     </h3>
                     <div id="productHighlights">
-
                     </div>
                 </div>
                 <div class="productItem__lessImages" id="productLessImages"></div>
             </div>
         </div>
+        <div class="chart">
+            <h1 data-aos="fade-up">Rating Charts</h1>
+            <select class="select sites" name="countries" id="countries" data-aos="flip-right">
+                <option value="All">All countries</option>
+                <option value="America">America</option>
+                <option value="Europe">Europe</option>
+            </select>
+            <canvas id="myChart" data-aos="zoom-in"></canvas>
+
+        </div>
     </div>
+
     <div class="lds-dual-ring" id="loader"></div>
     <footer class="information footerProduct">
         <div class="information__content">
@@ -179,8 +191,12 @@
         </div>
     </footer>
 </body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script type="module" src="./js/navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="./js/chart.js"></script>
 <script src="./js/utils.js"></script>
+<script type="module" src="./js/productList.js"></script>
 <script type="module" src="./js/product.js"></script>
 
 </html>

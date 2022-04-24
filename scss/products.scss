@@ -230,6 +230,15 @@ select {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            select {
+                font-family: "Poppins", sans-serif;
+                font-weight: 600;
+                width: 30%;
+                text-align: center;
+                padding: 5px;
+                border-radius: 10px;
+                background-color: #c4c4c4;
+            }
         }
     }
     &__name {
@@ -300,6 +309,19 @@ select {
         .productItem__highlights {
             width: 49%;
             height: 100%;
+            .render {
+                background-color: #c4c4c4 !important;
+                border: none;
+                color: #1e1e2c;
+                margin-top: 50px;
+                text-align: center;
+                width: 40%;
+                padding: 10px 0;
+                font-size: 1.5em;
+                background-color: transparent;
+                border-radius: 25px;
+                font-family: "Poppins", sans-serif;
+            }
             //margin-right: 5%;
             #productHighlights {
                 margin-top: 50px;
@@ -316,7 +338,36 @@ select {
         }
     }
 }
-
+.chart {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.125em;
+    font-weight: 300;
+    color: #fafafa;
+    h1 {
+        margin-bottom: 50px;
+    }
+    select {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        width: 20%;
+        text-align: center;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: #c4c4c4;
+        margin-bottom: 20px;
+    }
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    margin-bottom: 250px;
+    width: 90vw !important;
+    height: 90vh !important;
+    #myChart {
+        position: relative;
+    }
+}
 //login page//
 
 .bodyLogin {
@@ -393,6 +444,7 @@ select {
     display: none;
     &.loaded {
         display: flex;
+        flex-direction: column;
     }
 }
 
@@ -660,8 +712,8 @@ h2 {
         display: flex;
         flex-direction: row;
         margin-right: 15%;
-
         padding: 0;
+
         .productCart__price {
             margin-top: 20px;
             margin-left: 25%;
